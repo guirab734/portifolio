@@ -1,43 +1,60 @@
-# Portfólio
+# guirab.com.br
 
-Projeto de portfólio pessoal. A stack ainda será definida.
+Portfólio pessoal. Next.js 16, React 19, TypeScript e Tailwind 4.
+
+```bash
+npm run dev
+```
+
+## Como o site é organizado
+
+Uma página só, cinco seções, navegação em forma de timeline lateral — o site é
+movido a vídeo, então a régua de progresso usa o mesmo vocabulário.
+
+| Seção | Vídeo | Modo |
+|---|---|---|
+| Início | 01 — Hero, 10s | scrub |
+| Sobre | 02 — Transição, 5s | scrub |
+| Projetos | 03 — Ambiente, 12s | loop |
+| Stack | 04 — Estrutura, 6s | loop |
+| Contato | 05 — Fecho, 8s | scrub |
+
+**scrub** significa que o scroll controla o tempo do vídeo, quadro a quadro.
+**loop** é reprodução contínua ao fundo.
+
+## Onde mexer
+
+Todo o conteúdo está em [`lib/site-data.ts`](lib/site-data.ts) — projetos,
+stack, dados de contato e os caminhos dos vídeos. Editar esse arquivo muda a
+página inteira sem tocar em componente nenhum. Os campos marcados com
+`PREENCHER` ainda são placeholder.
+
+Os prompts dos cinco vídeos estão em [`docs/videos.md`](docs/videos.md), junto
+com as instruções de instalação e o que ajustar se o resultado não vier bom.
+
+## Design
+
+| Token | Valor | Uso |
+|---|---|---|
+| `void` | `#09070F` | fundo, preto com viés violeta |
+| `surface` | `#14101F` | superfícies elevadas |
+| `ultraviolet` | `#7B2BF9` | destaque principal |
+| `magenta` | `#E11D9C` | acento, usado com parcimônia |
+| `lilac` | `#C9BEE8` | texto secundário |
+| `paper` | `#F4F1FA` | texto principal |
+
+Bricolage Grotesque nos títulos, Inter Tight no corpo, JetBrains Mono nos
+timecodes e etiquetas.
+
+As animações de entrada usam `animation-timeline: view()`, nativo do CSS, sem
+biblioteca de scroll. Navegadores sem suporte mostram o conteúdo direto, e
+`prefers-reduced-motion` desliga tudo.
 
 ## Ferramentas de IA
 
-O repositório carrega servidores MCP e skills usados no desenvolvimento da
-interface com o Claude Code.
+Servidores MCP em [`.mcp.json`](.mcp.json): `shadcn-ui` para componentes e
+`chrome-devtools` para inspeção no navegador. As skills `frontend-design` e
+`web-design-guidelines` ficam em `.claude/skills/`.
 
-### Servidores MCP (`.mcp.json`)
-
-| Servidor | Pacote | Função | Chave |
-|---|---|---|---|
-| `shadcn-ui` | `@jpisnice/shadcn-ui-mcp-server` | Código-fonte dos componentes e blocks do shadcn/ui v4 | `GITHUB_TOKEN` (opcional) |
-| `chrome-devtools` | `chrome-devtools-mcp` | Performance, Lighthouse, console e rede no Chrome | — |
-
-Os servidores rodam via `npx`, já que o `bun` não está instalado na máquina.
-As chaves vêm de variáveis de ambiente, então nenhum segredo entra no repositório.
-
-### Skills (`.claude/skills/`)
-
-- **`frontend-design`** — direção visual e tipografia, evitando a aparência
-  genérica de interface gerada por IA. Origem: `anthropics/claude-code`.
-- **`web-design-guidelines`** — revisão de UI contra as Web Interface
-  Guidelines, cobrindo acessibilidade e boas práticas. Origem:
-  `vercel-labs/agent-skills`.
-
-Ambas têm escopo de projeto: valem neste repositório e não aparecem no painel
-de habilidades, que lista apenas o que foi instalado pelo gerenciador de plugins.
-
-O fluxo entre as quatro: `frontend-design` define a estética, `shadcn-ui`
-fornece os componentes base, `chrome-devtools` verifica o resultado no
-navegador e `web-design-guidelines` audita no fim.
-
-## Ambiente
-
-A chave fica em variável de ambiente do usuário, de onde o `.mcp.json` a lê:
-
-```powershell
-[Environment]::SetEnvironmentVariable('GITHUB_TOKEN', '<token>', 'User')
-```
-
-Os servidores MCP são carregados na inicialização do Claude Code.
+A única chave é o `GITHUB_TOKEN`, opcional — evita o limite de 60 requisições
+por hora do `shadcn-ui`. Modelo em [`.env.example`](.env.example).

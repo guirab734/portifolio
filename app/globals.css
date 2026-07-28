@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+@theme {
+  /* Preto com viés violeta, ultravioleta elétrico e um magenta quente.
+     O magenta existe para quebrar a monotonia do roxo — usar com parcimônia. */
+  --color-void: #09070f;
+  --color-surface: #14101f;
+  --color-ultraviolet: #7b2bf9;
+  --color-magenta: #e11d9c;
+  --color-lilac: #c9bee8;
+  --color-paper: #f4f1fa;
+
+  --font-display: var(--font-bricolage);
+  --font-body: var(--font-inter-tight);
+  --font-mono: var(--font-jetbrains);
+
+  /* Salto agressivo no display, corpo em escala calma */
+  --text-mega: clamp(3.5rem, 14vw, 13rem);
+  --text-mega--line-height: 0.84;
+  --text-mega--letter-spacing: -0.045em;
+
+  --text-giga: clamp(2.25rem, 7vw, 5.5rem);
+  --text-giga--line-height: 0.94;
+  --text-giga--letter-spacing: -0.03em;
+
+  --text-lede: clamp(1.125rem, 2.2vw, 1.75rem);
+  --text-lede--line-height: 1.45;
+}
+
+:root {
+  --edge: color-mix(in oklab, var(--color-lilac) 14%, transparent);
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-void);
+}
+
+body {
+  background-color: var(--color-void);
+  color: var(--color-paper);
+  font-family: var(--font-body), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-magenta);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection {
+  background-color: var(--color-ultraviolet);
+  color: var(--color-paper);
+}
+
+/* Grão sobre a página inteira. Segura o roxo de parecer digital demais. */
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Entrada por scroll usando timeline nativa. Sem biblioteca. */
+@supports (animation-timeline: view()) {
+  .reveal {
+    animation: reveal-in linear both;
+    animation-timeline: view();
+    animation-range: entry 5% cover 32%;
+  }
+}
+
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@supports not (animation-timeline: view()) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
