@@ -1,117 +1,98 @@
 # Vídeos do site
 
-Cinco vídeos, um por seção. Todos gerados no Leonardo AI e salvos em
-`public/videos/`. Enquanto o arquivo não existir, o site mostra um placeholder
-tracejado no lugar exato — nada quebra.
+Cinco vídeos, um por seção, gerados no Leonardo AI e salvos em `public/videos/`.
+Enquanto o arquivo não existir, o site mostra um placeholder tracejado no lugar
+exato — nada quebra.
 
-## Antes de gerar: o que estes vídeos são e não são
+## Status
 
-O Leonardo não consegue renderizar os seus projetos reais. Ele gera imagem a
-partir de descrição, então não existe prompt que produza um print do seu
-dashboard funcionando.
+| # | Seção | Duração | Formato | Situação |
+|---|---|---|---|---|
+| 01 | Hero | 10s | 16:9 | **aprovado** — instalado como `hero.mp4` |
+| 02 | Transição | 5s | 9:16 | **regerar** — claro demais e sem partículas |
+| 03 | Ambiente | 12s | 16:9 | **regerar** — o roxo saiu cinza |
+| 04 | Estrutura | 6s | 1:1 | **aprovado** — instalado como `stack.mp4` |
+| 05 | Fecho | 8s | 16:9 | **regerar** — a tinta saiu vermelha |
 
-Por isso os cinco vídeos são **atmosfera, não conteúdo**. Eles criam o ambiente
-— textura, cor, movimento — e os projetos entram por cima como screenshots
-reais, na seção Projetos. Vídeo de IA tentando imitar interface sempre sai com
-texto derretido e botões tortos; é o jeito mais rápido de um portfólio parecer
-amador.
+## O que estes vídeos são e não são
 
-Os cinco compartilham a mesma paleta e a mesma gramática visual (câmera estática,
-movimento lento, preto absoluto) para o site parecer uma peça só.
+O Leonardo não renderiza os seus projetos reais. Por isso os cinco são
+**atmosfera, não conteúdo**: criam o ambiente, e os projetos entram por cima
+como screenshots na seção Projetos.
+
+Os cinco compartilham a mesma gramática — câmera estática, movimento lento,
+preto absoluto — para o site parecer uma peça só.
 
 ## Como instalar um vídeo depois de gerar
 
-1. Salve o arquivo em `public/videos/` como `.mp4`
-2. Abra `lib/site-data.ts` e preencha o campo `arquivo`:
+1. Salve em `public/videos/` como `.mp4`
+2. Preencha o campo `arquivo` em `lib/site-data.ts`:
 
 ```ts
-hero: { arquivo: "/videos/hero.mp4", slot: "VÍDEO 01 — HERO", duracao: "10s · scrub" },
+transicao: { arquivo: "/videos/transicao.mp4", slot: "VÍDEO 02 — TRANSIÇÃO", duracao: "5s · scrub" },
 ```
 
-O placeholder some sozinho e o vídeo assume.
+Vale recodificar antes de instalar: 4K num vídeo de fundo é desperdício. O hero
+caiu de 14,5 MB para 1,0 MB em 1080p sem diferença visível.
 
 ---
 
-## VÍDEO 01 — HERO
+## VÍDEO 02 — TRANSIÇÃO (regerar)
 
-**Duração:** 10 segundos · **Formato:** 16:9 horizontal · **Modo:** scrub (o scroll controla o tempo)
+**5 segundos · 9:16 vertical · scrub**
 
-Fica atrás do seu nome, ocupando a tela inteira. O lado esquerdo precisa ficar
-escuro e vazio, porque é onde o texto aparece.
-
-```
-Extreme macro cinematography of luminous ultraviolet ink blooming slowly into perfectly black water. Dense violet pigment unfurls in soft billowing tendrils from the right side of frame, its thinning edges shifting toward hot magenta where the density drops. The ink moves with heavy viscous inertia, slow and deliberate, never chaotic or explosive. Background is absolute void black with no visible container, no glass walls, no water surface, no horizon line. Lighting is a single hard rim light from the upper right, making the pigment appear self-illuminated, glowing from within rather than lit from outside. Shallow depth of field: the leading edge of the bloom is razor sharp while trailing wisps fall into soft bokeh. Fine 35mm film grain over the entire frame. Camera is locked off on a tripod, absolutely static, no pan, no tilt, no zoom, no handheld shake, only the ink moves. Movement speed is very slow and hypnotic, roughly one third of real time. Color grade is high contrast with crushed blacks, deep saturated violet midtones, and controlled specular highlights that never blow out to white. Composition keeps the entire left half of the frame empty, dark and uncluttered. Mood is patient, expensive, restrained, cinematic. Dark laboratory aesthetic.
-
-Negative: no text, no letters, no numbers, no watermark, no logo, no people, no hands, no faces, no objects, no glitter, no sparkles, no lens flare, no rainbow colors, no green, no orange, no blue, no white background, no fast motion, no strobing, no camera movement, no cuts.
-```
-
----
-
-## VÍDEO 02 — TRANSIÇÃO
-
-**Duração:** 5 segundos · **Formato:** 3:4 vertical · **Modo:** scrub
-
-Fica ao lado do texto da seção Sobre, em formato retrato. É o mais curto —
-serve de respiro entre o hero e os projetos.
+O que saiu errado: o feixe ocupou metade do quadro num lilás pastel quase
+branco, as partículas de poeira não apareceram e o clipe ficou praticamente
+estático. O prompt abaixo corrige os três — feixe estreito, quadro muito mais
+escuro e as partículas como assunto principal, não como detalhe.
 
 ```
-Vertical portrait format. A single narrow shaft of ultraviolet light cuts diagonally through a volume of suspended dust particles in a pitch black empty room. Thousands of fine dust motes drift slowly through the beam, catching the violet light and flickering as they cross it, then vanishing into darkness. The beam has soft volumetric falloff, brightest at its source in the upper left and dissolving into nothing by the lower right. Faint magenta chromatic fringing along the beam edges. Absolute black everywhere the light does not reach, with no visible walls, floor, ceiling, window, or architecture of any kind. Camera is completely locked off and static, no pan, no zoom, no drift, only the dust particles move. Particle motion is slow, weightless and random, like dust in still air, never swirling or blowing. Heavy film grain and subtle gate weave for an analog feel. High contrast grade with pure crushed blacks and a narrow violet to magenta color range only. Mood is quiet, contemplative, cinematic, patient.
+Vertical 9:16 format. Extreme low key shot: a pitch black empty void where roughly ninety percent of the frame is pure black. A single very narrow shaft of deep violet light, no wider than one tenth of the frame, cuts diagonally from the upper left corner toward the lower right. The beam is thin, sharp edged and dim, not a wide glow and not a spotlight. The true subject of the shot is dust: thousands of tiny individual dust motes drift slowly through the beam, each one catching the violet light as a distinct bright speck, twinkling in and out as they cross the shaft and disappearing completely into black outside it. The particles are clearly visible, sharp and countable, drifting with slow weightless random motion like dust in still air. Deep magenta chromatic fringing along the beam edge. Absolutely nothing else is lit: no walls, no floor, no ceiling, no window, no architecture, no surfaces. Camera is locked off and completely static, no pan, no zoom, no drift. Underexposed, crushed blacks, very high contrast, saturated violet, cinematic anamorphic look with heavy 35mm grain.
 
-Negative: no text, no letters, no numbers, no watermark, no people, no silhouettes, no hands, no furniture, no windows, no walls, no architecture, no smoke machine haze, no fog, no god rays through clouds, no sun, no green, no orange, no yellow, no white light, no fast motion, no camera movement, no cuts, no strobing.
+Negative: no bright light, no white light, no washed out areas, no pastel colors, no lilac, no wide glow, no large light source, no haze filling the frame, no fog banks, no smoke, no text, no letters, no numbers, no watermark, no people, no silhouettes, no hands, no walls, no windows, no architecture, no furniture, no god rays, no sun, no green, no orange, no yellow, no blue, no static image, no frozen motion, no camera movement, no cuts.
 ```
 
 ---
 
-## VÍDEO 03 — AMBIENTE
+## VÍDEO 03 — AMBIENTE (regerar)
 
-**Duração:** 12 segundos · **Formato:** 16:9 horizontal · **Modo:** loop contínuo
+**12 segundos · 16:9 · loop contínuo**
 
-Fica atrás da lista de projetos, com **18% de opacidade**. É o mais discreto de
-todos — se chamar atenção, atrapalha a leitura. Precisa emendar o fim no começo
-sem corte visível.
-
-```
-Slow drifting volumetric fog in near total darkness, lit from behind by a distant weak ultraviolet source. The fog is thin and wispy, moving laterally from left to right at an extremely slow constant speed, with no turbulence, no billowing and no swirling. Density is low: most of the frame stays almost completely black, with only faint violet luminance gradients suggesting depth and layers receding into the distance. No visible light source in frame, no defined beam, no hotspot. The overall image is very dark and very low contrast, deliberately understated, like an underexposed night shot. Extremely subtle magenta tint in the densest fog areas. Fine film grain throughout. Camera is absolutely static and locked off, no movement whatsoever. Motion is continuous, even and uniform so the clip loops seamlessly with no visible cut. Mood is ambient, atmospheric, background texture, quiet and unobtrusive. Nothing in the frame should draw the eye or read as a subject.
-
-Negative: no text, no letters, no numbers, no watermark, no logo, no people, no objects, no shapes, no creatures, no landscape, no horizon, no ground, no sky, no stars, no particles, no sparkles, no bright highlights, no high contrast, no green, no orange, no blue, no white, no fast motion, no camera movement, no cuts, no strobing, no focal subject.
-```
-
----
-
-## VÍDEO 04 — ESTRUTURA
-
-**Duração:** 6 segundos · **Formato:** 1:1 quadrado · **Modo:** loop contínuo
-
-Fica ao lado da lista de ferramentas. É o único mais geométrico do conjunto —
-a ideia é sugerir construção sem cair no clichê de código na tela.
+O que saiu errado: a névoa veio completamente dessaturada, cinza prateada, sem
+nenhum roxo. Como este vídeo roda a 18% de opacidade atrás dos projetos, ele
+precisa carregar cor — senão vira uma mancha cinza. O prompt abaixo insiste na
+saturação e troca "fog" por fumaça colorida, que puxa menos para o cinza.
 
 ```
-Square format. A cluster of translucent crystalline geometric structures rotating extremely slowly in absolute black space. The forms are angular and faceted, like cleaved obsidian or cut amethyst, with sharp precise edges and flat internal planes. They are deep violet and semi transparent, refracting light through their interior so inner facets glow with magenta highlights where the light concentrates. Rotation is a single continuous slow axis turn, roughly one full degree per frame, smooth and mechanical with no wobble and no acceleration. The structures float without support, no ground, no shadow beneath, no surface, no reflection plane. Lighting is a single cool key light from the upper left plus faint violet ambient fill. Background is pure black with nothing in it. Shallow depth of field with the nearest facet sharp and the rear forms softly defocused. Fine film grain. Camera is completely locked off and static, no orbit, no push in, no pan, only the objects rotate. Motion loops seamlessly. Mood is precise, engineered, cold, deliberate.
+Slowly drifting clouds of deeply saturated violet and purple colored smoke in total darkness. The smoke is richly colored, an intense electric purple with magenta cores where it is densest, never gray and never white. It moves laterally from left to right at an extremely slow constant speed with gentle internal churn, no fast turbulence and no explosive billowing. Density is low and layered: large parts of the frame stay pure black, with the colored smoke forming soft luminous bands that recede into depth. The smoke appears self illuminated, glowing from within with its own violet light rather than being lit by an external white source. No visible light source in frame, no beam, no hotspot, no lens flare. Overall exposure is dark and moody but the color remains vivid and unmistakably purple. Fine film grain. Camera absolutely static and locked off. Motion is continuous and uniform so the clip loops seamlessly with the last frame matching the first. Ambient background texture, quiet, nothing that reads as a subject.
 
-Negative: no text, no letters, no numbers, no watermark, no logo, no people, no hands, no code, no screens, no user interface, no circuit boards, no wireframes, no grids, no ground plane, no shadows, no reflections, no green, no orange, no gold, no rainbow refraction, no fast rotation, no camera movement, no cuts, no strobing.
+Negative: no gray, no grey smoke, no white smoke, no silver, no desaturated colors, no monochrome, no black and white, no washed out tones, no fog, no mist, no clouds in sky, no text, no letters, no numbers, no watermark, no people, no objects, no creatures, no landscape, no horizon, no ground, no stars, no bright highlights, no green, no orange, no blue, no fast motion, no camera movement, no cuts, no focal subject.
 ```
 
 ---
 
-## VÍDEO 05 — FECHO
+## VÍDEO 05 — FECHO (regerar)
 
-**Duração:** 8 segundos · **Formato:** 16:9 horizontal · **Modo:** scrub
+**8 segundos · 16:9 · scrub**
 
-Fecha o site atrás do seu email. É o vídeo 01 ao contrário: lá a tinta floresce,
-aqui ela assenta. Isso amarra o começo e o fim numa coisa só.
+O que saiu errado: duas coisas. A tinta que descia virou vermelho coral, cor que
+não existe na paleta do site, e a borda do aquário apareceu como uma faixa
+horizontal no topo. O prompt abaixo proíbe explicitamente o vermelho e insiste
+que nenhuma borda de recipiente apareça.
 
 ```
-Extreme macro cinematography of violet ink settling and dissipating into perfectly black water, the final calm phase after a bloom. Thin exhausted tendrils of ultraviolet pigment sink slowly downward and outward, spreading thinner and fainter as they descend, gradually surrendering to the darkness. The motion decelerates continuously across the clip, beginning with faint residual drift and ending almost completely still. Color fades from saturated violet at the top toward deep desaturated magenta in the dispersing lower edges. Background is absolute void black with no container, no glass, no surface, no horizon. Lighting is a single soft rim light from above, dimmer and more diffuse than a hero shot, letting most of the frame fall into darkness. Shallow depth of field with heavy bokeh on the trailing wisps. Fine 35mm film grain. Camera is locked off, absolutely static, no pan, no zoom, no shake. Composition keeps the center of the frame open and dark for text overlay. Mood is resolved, quiet, closing, cinematic, the visual equivalent of an exhale.
+Extreme macro cinematography of violet ink settling and dissipating in perfectly black water, filmed so close that the liquid fills the entire frame edge to edge. This is the calm final phase after a bloom: thin exhausted tendrils of pigment sink slowly downward and outward, spreading thinner and fainter as they descend. The motion decelerates continuously across the clip, beginning with faint residual drift and ending almost completely still. The pigment is strictly violet and purple, shifting only toward deep magenta and pink in its thinnest dispersing edges, never toward red, never toward coral, never toward orange. Absolute void black background. Critically, no part of any container is visible: no tank edge, no glass wall, no rim, no horizontal water surface line across the top of frame, no reflections of a container, no bubbles clinging to glass. The liquid extends beyond every edge of the frame with no boundary of any kind. Lighting is a single soft rim light from above, dim and diffuse, letting most of the frame fall into darkness. Shallow depth of field with heavy bokeh on trailing wisps. Fine 35mm grain. Camera locked off and absolutely static. Composition keeps the right half of the frame open and dark for text overlay. Mood is resolved, quiet, closing.
 
-Negative: no text, no letters, no numbers, no watermark, no logo, no people, no hands, no faces, no objects, no glitter, no sparkles, no lens flare, no bright colors, no green, no orange, no blue, no white background, no fast motion, no turbulence, no camera movement, no cuts, no strobing.
+Negative: no red, no coral, no crimson, no scarlet, no orange, no warm colors, no glass, no tank, no aquarium, no container edge, no rim, no horizontal line, no water surface, no waterline, no bubbles, no reflections, no text, no letters, no numbers, no watermark, no people, no hands, no objects, no sparkles, no lens flare, no green, no blue, no white background, no fast motion, no turbulence, no camera movement, no cuts.
 ```
 
 ---
 
-## Ajustes se o resultado não vier bom
+## Ajustes gerais
 
-- **Muito claro ou lavado:** acrescente `underexposed, deep shadows, low key lighting` no começo
-- **Movimento rápido demais:** acrescente `time lapse in reverse, quarter speed, slow motion`
-- **Aparecendo objetos ou pessoas:** reforce o negativo repetindo `no subject, abstract only`
-- **Roxo saindo azulado:** troque `ultraviolet` por `deep purple magenta` no corpo do prompt
-- **Loop com corte visível (vídeos 03 e 04):** peça `seamless loop, first frame identical to last frame`
+- **Claro ou lavado demais:** comece o prompt com `underexposed, low key, crushed blacks`
+- **Rápido demais:** acrescente `quarter speed, extreme slow motion`
+- **Cor dessaturada:** use `deeply saturated, vivid, intense color` e proíba `gray, desaturated` no negativo
+- **Aparecendo objetos:** reforce `abstract only, no subject` no negativo
+- **Borda de aquário:** proíba `tank, glass, rim, waterline` — ou corte no ffmpeg depois, como foi feito no hero
+- **Loop com corte visível:** peça `seamless loop, first frame identical to last frame`
