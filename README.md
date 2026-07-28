@@ -2,38 +2,40 @@
 
 Projeto de portfólio pessoal. A stack ainda será definida.
 
-## Ferramentas de IA configuradas
+## Ferramentas de IA
 
-Este repositório vem com servidores MCP e skills configurados para auxiliar no
-desenvolvimento da interface com o Claude Code.
+O repositório carrega servidores MCP e skills usados no desenvolvimento da
+interface com o Claude Code.
 
 ### Servidores MCP (`.mcp.json`)
 
-| Servidor | Pacote | Para que serve | Chave necessária |
+| Servidor | Pacote | Função | Chave |
 |---|---|---|---|
 | `shadcn-ui` | `@jpisnice/shadcn-ui-mcp-server` | Consulta componentes do shadcn/ui | `GITHUB_TOKEN` (opcional) |
-| `magic` | `@21st-dev/magic` | Geração de componentes de UI | `TWENTY_FIRST_API_KEY` (obrigatória) |
-| `chrome-devtools` | `chrome-devtools-mcp` | Inspeção e depuração no navegador | nenhuma |
+| `magic` | `@21st-dev/magic` | Geração de componentes de UI | `TWENTY_FIRST_API_KEY` |
+| `chrome-devtools` | `chrome-devtools-mcp` | Inspeção e depuração no navegador | — |
 
-Os servidores rodam via `npx` (o `bun` não está instalado nesta máquina).
-As chaves são lidas de variáveis de ambiente — nenhum segredo fica no repositório.
+Os servidores rodam via `npx`, já que o `bun` não está instalado na máquina.
+As chaves vêm de variáveis de ambiente, então nenhum segredo entra no repositório.
 
 ### Skills (`.claude/skills/`)
 
 - **`frontend-design`** — direção visual e tipografia, evitando a aparência
-  genérica de interface gerada por IA. Fonte: `anthropics/claude-code`.
+  genérica de interface gerada por IA. Origem: `anthropics/claude-code`.
 - **`web-design-guidelines`** — revisão de UI contra as Web Interface
-  Guidelines (acessibilidade e boas práticas). Fonte: `vercel-labs/agent-skills`.
+  Guidelines, cobrindo acessibilidade e boas práticas. Origem:
+  `vercel-labs/agent-skills`.
 
-## Configuração
+Ambas têm escopo de projeto: valem neste repositório e não aparecem no painel
+de habilidades, que lista apenas o que foi instalado pelo gerenciador de plugins.
 
-1. Copie `.env.example` para `.env` e preencha as chaves.
-2. Defina as variáveis no ambiente para que o `.mcp.json` as encontre. No
-   PowerShell, de forma persistente:
+## Ambiente
 
-   ```powershell
-   [Environment]::SetEnvironmentVariable('GITHUB_TOKEN', 'seu_token', 'User')
-   [Environment]::SetEnvironmentVariable('TWENTY_FIRST_API_KEY', 'sua_chave', 'User')
-   ```
+As chaves ficam em variáveis de ambiente do usuário, de onde o `.mcp.json` as lê:
 
-3. Reinicie o Claude Code para que os servidores MCP sejam carregados.
+```powershell
+[Environment]::SetEnvironmentVariable('GITHUB_TOKEN', '<token>', 'User')
+[Environment]::SetEnvironmentVariable('TWENTY_FIRST_API_KEY', '<chave>', 'User')
+```
+
+Os servidores MCP são carregados na inicialização do Claude Code.
