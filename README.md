@@ -11,9 +11,8 @@ interface com o Claude Code.
 
 | Servidor | Pacote | Função | Chave |
 |---|---|---|---|
-| `shadcn-ui` | `@jpisnice/shadcn-ui-mcp-server` | Consulta componentes do shadcn/ui | `GITHUB_TOKEN` (opcional) |
-| `magic` | `@21st-dev/magic` | Geração de componentes de UI | `TWENTY_FIRST_API_KEY` |
-| `chrome-devtools` | `chrome-devtools-mcp` | Inspeção e depuração no navegador | — |
+| `shadcn-ui` | `@jpisnice/shadcn-ui-mcp-server` | Código-fonte dos componentes e blocks do shadcn/ui v4 | `GITHUB_TOKEN` (opcional) |
+| `chrome-devtools` | `chrome-devtools-mcp` | Performance, Lighthouse, console e rede no Chrome | — |
 
 Os servidores rodam via `npx`, já que o `bun` não está instalado na máquina.
 As chaves vêm de variáveis de ambiente, então nenhum segredo entra no repositório.
@@ -29,13 +28,16 @@ As chaves vêm de variáveis de ambiente, então nenhum segredo entra no reposit
 Ambas têm escopo de projeto: valem neste repositório e não aparecem no painel
 de habilidades, que lista apenas o que foi instalado pelo gerenciador de plugins.
 
+O fluxo entre as quatro: `frontend-design` define a estética, `shadcn-ui`
+fornece os componentes base, `chrome-devtools` verifica o resultado no
+navegador e `web-design-guidelines` audita no fim.
+
 ## Ambiente
 
-As chaves ficam em variáveis de ambiente do usuário, de onde o `.mcp.json` as lê:
+A chave fica em variável de ambiente do usuário, de onde o `.mcp.json` a lê:
 
 ```powershell
 [Environment]::SetEnvironmentVariable('GITHUB_TOKEN', '<token>', 'User')
-[Environment]::SetEnvironmentVariable('TWENTY_FIRST_API_KEY', '<chave>', 'User')
 ```
 
 Os servidores MCP são carregados na inicialização do Claude Code.
