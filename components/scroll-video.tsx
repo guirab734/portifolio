@@ -29,20 +29,23 @@ export function ScrollVideo({
   useEffect(() => {
     const video = videoRef.current;
     const host = hostRef.current;
-    if (!video || !host || mode !== "scrub") return;
+    if (!video || !host || !src || mode !== "scrub") return;
 
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
-    if (reduced.matches) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    // O percurso é dado pela seção inteira, não pelo contêiner do vídeo — este
+    // vive dentro do sticky e por isso mede apenas uma viewport.
+    const track = host.closest("section") ?? host;
 
     let frame = 0;
 
     const update = () => {
       frame = 0;
-      const rect = host.getBoundingClientRect();
+      const rect = track.getBoundingClientRect();
       const scrollable = rect.height - window.innerHeight;
       if (scrollable <= 0 || !video.duration) return;
 
-      // 0 quando o topo encosta na viewport, 1 quando a seção termina
+      // 0 quando o topo da seção encosta na viewport, 1 quando ela termina
       const progress = Math.min(Math.max(-rect.top / scrollable, 0), 1);
       const target = progress * video.duration;
 
@@ -66,7 +69,7 @@ export function ScrollVideo({
       window.removeEventListener("resize", onScroll);
       if (frame) cancelAnimationFrame(frame);
     };
-  }, [mode, ready]);
+  }, [mode, ready, src]);
 
   if (!src) {
     return (

@@ -30,10 +30,10 @@ export const SECTIONS = [
  * `arquivo`. Enquanto o arquivo não existir, o componente mostra o placeholder.
  */
 export const VIDEOS = {
-  hero: { arquivo: "", slot: "VÍDEO 01 — HERO", duracao: "10s · scrub" },
+  hero: { arquivo: "/videos/hero.mp4", slot: "VÍDEO 01 — HERO", duracao: "10s · scrub" },
   transicao: { arquivo: "", slot: "VÍDEO 02 — TRANSIÇÃO", duracao: "5s · scrub" },
   projetos: { arquivo: "", slot: "VÍDEO 03 — AMBIENTE", duracao: "12s · loop" },
-  stack: { arquivo: "", slot: "VÍDEO 04 — ESTRUTURA", duracao: "6s · loop" },
+  stack: { arquivo: "/videos/stack.mp4", slot: "VÍDEO 04 — ESTRUTURA", duracao: "6s · loop" },
   fecho: { arquivo: "", slot: "VÍDEO 05 — FECHO", duracao: "8s · scrub" },
 };
 
