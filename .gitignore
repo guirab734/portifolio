@@ -1,0 +1,36 @@
+# Dependencias
+node_modules/
+.pnp
+.pnp.js
+
+# Build / output
+dist/
+build/
+.next/
+out/
+.vercel/
+.turbo/
+
+# Segredos e ambiente - NUNCA commitar
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Config local do Claude Code (pode conter tokens em regras de permissao)
+.claude/settings.local.json
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor / SO
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
