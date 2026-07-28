@@ -29,10 +29,11 @@ export function Stack() {
             </dl>
           </div>
 
-          <div className="reveal aspect-square overflow-hidden md:aspect-auto">
+          <div className="reveal aspect-square">
             <ScrollVideo
               src={VIDEOS.stack.arquivo || undefined}
               mode="ambient"
+              blend
               slot={VIDEOS.stack.slot}
               duration={VIDEOS.stack.duracao}
             />

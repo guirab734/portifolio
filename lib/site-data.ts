@@ -15,7 +15,15 @@ export const PERFIL = {
   github: "https://github.com/guirab734",
   // PREENCHER: linkedin, se houver.
   linkedin: "",
+  // Número no formato internacional, sem símbolos, como a API do WhatsApp exige.
+  whatsapp: "5579999076521",
+  whatsappMensagem: "Olá, Guilherme! Vi seu portfólio e queria conversar.",
 };
+
+/** Link da API oficial do WhatsApp, com a mensagem já preenchida. */
+export const whatsappUrl = `https://wa.me/${PERFIL.whatsapp}?text=${encodeURIComponent(
+  PERFIL.whatsappMensagem,
+)}`;
 
 export const SECTIONS = [
   { id: "inicio", label: "Início", timecode: "00:00" },
@@ -31,10 +39,10 @@ export const SECTIONS = [
  */
 export const VIDEOS = {
   hero: { arquivo: "/videos/hero.mp4", slot: "VÍDEO 01 — HERO", duracao: "10s · scrub" },
-  transicao: { arquivo: "", slot: "VÍDEO 02 — TRANSIÇÃO", duracao: "5s · scrub" },
-  projetos: { arquivo: "", slot: "VÍDEO 03 — AMBIENTE", duracao: "12s · loop" },
+  transicao: { arquivo: "/videos/transicao.mp4", slot: "VÍDEO 02 — TRANSIÇÃO", duracao: "5s · scrub" },
+  projetos: { arquivo: "/videos/projetos.mp4", slot: "VÍDEO 03 — AMBIENTE", duracao: "12s · loop" },
   stack: { arquivo: "/videos/stack.mp4", slot: "VÍDEO 04 — ESTRUTURA", duracao: "6s · loop" },
-  fecho: { arquivo: "", slot: "VÍDEO 05 — FECHO", duracao: "8s · scrub" },
+  fecho: { arquivo: "/videos/fecho.mp4", slot: "VÍDEO 05 — FECHO", duracao: "8s · scrub" },
 };
 
 export type Projeto = {

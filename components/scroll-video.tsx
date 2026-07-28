@@ -13,6 +13,13 @@ type Props = {
   slot: string;
   duration: string;
   className?: string;
+  /**
+   * Funde o vídeo ao fundo em vez de exibi-lo como um retângulo. O modo
+   * "lighten" descarta tudo que for mais escuro que a página, então o preto do
+   * clipe some e sobra apenas o objeto iluminado; a máscara radial dissolve as
+   * quatro bordas. Só faz sentido em clipes de fundo preto com assunto claro.
+   */
+  blend?: boolean;
 };
 
 export function ScrollVideo({
@@ -21,6 +28,7 @@ export function ScrollVideo({
   slot,
   duration,
   className = "",
+  blend = false,
 }: Props) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const hostRef = useRef<HTMLDivElement>(null);
@@ -86,6 +94,11 @@ export function ScrollVideo({
     );
   }
 
+  // Opaca no miolo para preservar o assunto, dissolvendo só nas quinas — é lá
+  // que sobram reflexos de lente do material bruto.
+  const mascara =
+    "radial-gradient(ellipse 78% 78% at 50% 50%, #000 52%, transparent 82%)";
+
   return (
     <div ref={hostRef} className={`h-full w-full ${className}`}>
       <video
@@ -98,6 +111,15 @@ export function ScrollVideo({
         autoPlay={mode === "ambient"}
         onLoadedMetadata={() => setReady(true)}
         className="h-full w-full object-cover"
+        style={
+          blend
+            ? {
+                mixBlendMode: "lighten",
+                maskImage: mascara,
+                WebkitMaskImage: mascara,
+              }
+            : undefined
+        }
       />
     </div>
   );
