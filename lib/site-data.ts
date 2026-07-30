@@ -11,9 +11,7 @@ export const PERFIL = {
   sobrenome: "Rabelo",
   papel: "Desenvolvedor Full-Stack",
   local: "Brasil",
-  // Retrato usado na seção Sobre. Salvar em public/ e apontar aqui, por
-  // exemplo "/foto.jpg". Vazio mostra o espaço reservado.
-  foto: "",
+  foto: "", // retrato 4:5 em public/, ex: "/foto.jpg"
   email: "guirab734@gmail.com",
   github: "https://github.com/guirab734",
   linkedin: "https://www.linkedin.com/in/guirab/",
