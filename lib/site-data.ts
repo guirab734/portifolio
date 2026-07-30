@@ -1,36 +1,28 @@
-/**
- * Todo o conteúdo do site vive aqui. Editar este arquivo muda a página inteira,
- * sem mexer em componente nenhum.
- *
- * TODO: os campos marcados com PREENCHER são placeholders.
- */
+import { T, type Idioma } from "@/lib/i18n";
 
 export const PERFIL = {
-  // PREENCHER: confirmar o nome completo.
   nome: "Guilherme",
   sobrenome: "Rabelo",
-  papel: "Desenvolvedor Full-Stack",
-  local: "Brasil",
-  foto: "", // retrato 4:5 em public/, ex: "/foto.jpg"
+  foto: "/foto.webp",
   email: "guirab734@gmail.com",
   github: "https://github.com/guirab734",
   linkedin: "https://www.linkedin.com/in/guirab/",
   whatsapp: "5579999076521",
-  whatsappMensagem: "Olá, Guilherme! Vi seu portfólio e queria conversar.",
 };
 
-export const whatsappUrl = `https://wa.me/${PERFIL.whatsapp}?text=${encodeURIComponent(
-  PERFIL.whatsappMensagem,
-)}`;
+export function whatsappUrl(idioma: Idioma) {
+  return `https://wa.me/${PERFIL.whatsapp}?text=${encodeURIComponent(
+    T[idioma].contato.mensagem,
+  )}`;
+}
 
 export const SECTIONS = [
-  { id: "inicio", label: "Início", timecode: "00:00" },
-  { id: "sobre", label: "Sobre", timecode: "00:12" },
-  { id: "projetos", label: "Projetos", timecode: "00:28" },
-  { id: "stack", label: "Stack", timecode: "00:51" },
-  { id: "contato", label: "Contato", timecode: "01:04" },
+  { id: "inicio", timecode: "00:00" },
+  { id: "sobre", timecode: "00:12" },
+  { id: "projetos", timecode: "00:28" },
+  { id: "stack", timecode: "00:51" },
+  { id: "contato", timecode: "01:04" },
 ] as const;
-
 
 export const VIDEOS = {
   hero: { arquivo: "/videos/hero.mp4", slot: "VÍDEO 01 — HERO", duracao: "10s · scrub" },
@@ -40,54 +32,15 @@ export const VIDEOS = {
   fecho: { arquivo: "/videos/fecho.mp4", slot: "VÍDEO 05 — FECHO", duracao: "8s · scrub" },
 };
 
-export type Projeto = {
-  titulo: string;
-  resumo: string;
-  papel: string;
-  ano: string;
-  stack: string[];
-  repo?: string;
-  demo?: string;
-  imagem?: string;
-};
-
-
-export const PROJETOS: Projeto[] = [
-  {
-    titulo: "Projeto Um",
-    resumo:
-      "Uma frase sobre o problema que ele resolve e para quem. Não sobre a tecnologia — a stack aparece logo abaixo.",
-    papel: "Concepção, front-end e deploy",
-    ano: "2026",
-    stack: ["Next.js", "TypeScript", "Tailwind"],
-    repo: "",
-    demo: "",
-  },
-  {
-    titulo: "Projeto Dois",
-    resumo:
-      "O que ele faz e qual decisão de construção foi interessante. Recrutador lê isso em cinco segundos.",
-    papel: "Full-stack",
-    ano: "2025",
-    stack: ["React", "Node.js", "PostgreSQL"],
-    repo: "",
-    demo: "",
-  },
-  {
-    titulo: "Projeto Três",
-    resumo:
-      "Se for trabalho de faculdade ou pessoal, tudo bem dizer. Honestidade lê melhor que inflar.",
-    papel: "Desenvolvimento",
-    ano: "2025",
-    stack: ["JavaScript", "API REST"],
-    repo: "",
-    demo: "",
-  },
+// Texto de resumo e papel vem do dicionário, na mesma ordem desta lista
+export const PROJETOS = [
+  { titulo: "Projeto Um", ano: "2026", stack: ["Next.js", "TypeScript", "Tailwind"], repo: "", demo: "" },
+  { titulo: "Projeto Dois", ano: "2025", stack: ["React", "Node.js", "PostgreSQL"], repo: "", demo: "" },
+  { titulo: "Projeto Três", ano: "2025", stack: ["JavaScript", "API REST"], repo: "", demo: "" },
 ];
 
-
 export const STACK = [
-  { grupo: "Front-end", itens: ["Next.js", "React", "TypeScript", "Tailwind CSS"] },
-  { grupo: "Back-end", itens: ["Node.js", "APIs REST", "PostgreSQL"] },
-  { grupo: "Ferramentas", itens: ["Git", "Vercel", "Figma"] },
+  ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+  ["Node.js", "APIs REST", "PostgreSQL"],
+  ["Git", "Vercel", "Figma"],
 ];

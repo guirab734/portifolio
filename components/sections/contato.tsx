@@ -1,4 +1,7 @@
+"use client";
+
 import { ScrollVideo } from "@/components/scroll-video";
+import { useIdioma } from "@/components/idioma";
 import { PERFIL, VIDEOS, whatsappUrl } from "@/lib/site-data";
 
 function IconeWhatsapp() {
@@ -10,6 +13,8 @@ function IconeWhatsapp() {
 }
 
 export function Contato() {
+  const { t, idioma } = useIdioma();
+
   return (
     <section id="contato" className="relative h-[180vh] border-t border-lilac/10">
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
@@ -25,7 +30,7 @@ export function Contato() {
 
         <div className="relative mx-auto w-full max-w-6xl px-6 md:px-12">
           <p className="font-mono text-[0.7rem] tracking-[0.3em] text-magenta uppercase">
-            Contato
+            {t.secoes.contato}
           </p>
 
           <a
@@ -36,13 +41,13 @@ export function Contato() {
           </a>
 
           <a
-            href={whatsappUrl}
+            href={whatsappUrl(idioma)}
             target="_blank"
             rel="noopener noreferrer"
             className="mt-10 inline-flex items-center gap-3 border border-ultraviolet bg-ultraviolet/10 px-7 py-4 font-mono text-[0.72rem] tracking-[0.2em] text-paper uppercase transition-colors hover:bg-ultraviolet"
           >
             <IconeWhatsapp />
-            Chamar no WhatsApp
+            {t.contato.whatsapp}
           </a>
 
           <div className="mt-16 flex flex-wrap gap-x-10 gap-y-4 border-t border-lilac/15 pt-8 font-mono text-[0.7rem] tracking-[0.2em] uppercase">
@@ -54,16 +59,14 @@ export function Contato() {
             >
               GitHub
             </a>
-            {PERFIL.linkedin && (
-              <a
-                href={PERFIL.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-lilac transition-colors hover:text-paper"
-              >
-                LinkedIn
-              </a>
-            )}
+            <a
+              href={PERFIL.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-lilac transition-colors hover:text-paper"
+            >
+              LinkedIn
+            </a>
             <span className="ml-auto text-lilac/40">
               © {new Date().getFullYear()} guirab.com.br
             </span>
