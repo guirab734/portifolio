@@ -1,6 +1,7 @@
 import { Timeline } from "@/components/timeline";
 import { Hero } from "@/components/sections/hero";
 import { Sobre } from "@/components/sections/sobre";
+import { Transicao } from "@/components/sections/transicao";
 import { Projetos } from "@/components/sections/projetos";
 import { Stack } from "@/components/sections/stack";
 import { Contato } from "@/components/sections/contato";
@@ -18,6 +19,7 @@ export default function Home() {
       <main>
         <Hero />
         <Sobre />
+        <Transicao />
         <Projetos />
         <Stack />
         <Contato />
