@@ -52,7 +52,16 @@ export const PROJETOS: {
 ];
 
 export const STACK = [
-  ["Next.js", "React", "TypeScript", "Tailwind CSS"],
-  ["Node.js", "APIs REST", "PostgreSQL"],
-  ["Git", "Vercel", "Figma"],
+  ["TypeScript", "JavaScript", "C#", "C++", "Python", "Java"],
+  ["React", "Next.js", "Tailwind CSS", "HTML", "CSS"],
+  ["Node.js", "Express", "APIs REST", "PostgreSQL", "MySQL", "MongoDB"],
+  ["Git", "Vercel", "Docker", "Figma"],
+];
+
+// Só o tempo de experiência é um número fechado; o resto entra quando houver
+export const NUMEROS = [
+  { valor: "6" },
+  { valor: "—" }, // PREENCHER: projetos entregues
+  { valor: "—" }, // PREENCHER: clientes atendidos
+  { valor: "—" }, // PREENCHER: projetos full-stack
 ];
