@@ -87,10 +87,51 @@ body {
   }
 }
 
+/* Revelação por corte: o conteúdo é descoberto de baixo para cima, como uma
+   cortina subindo. Serve para linhas e títulos, onde o deslocamento do fade
+   simples fica frouxo. */
+@supports (animation-timeline: view()) {
+  .reveal-clip {
+    animation: reveal-clip linear both;
+    animation-timeline: view();
+    animation-range: entry 2% cover 26%;
+  }
+
+  /* Deriva lenta no sentido oposto ao scroll, para dar profundidade */
+  .parallax {
+    animation: parallax linear both;
+    animation-timeline: view();
+    animation-range: entry 0% exit 100%;
+  }
+}
+
+@keyframes reveal-clip {
+  from {
+    clip-path: inset(100% 0 0 0);
+    transform: translateY(14px);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes parallax {
+  from {
+    transform: translateY(6%);
+  }
+  to {
+    transform: translateY(-6%);
+  }
+}
+
 @supports not (animation-timeline: view()) {
-  .reveal {
+  .reveal,
+  .reveal-clip,
+  .parallax {
     opacity: 1;
     transform: none;
+    clip-path: none;
   }
 }
 
@@ -98,10 +139,13 @@ body {
   html {
     scroll-behavior: auto;
   }
-  .reveal {
+  .reveal,
+  .reveal-clip,
+  .parallax {
     animation: none;
     opacity: 1;
     transform: none;
+    clip-path: none;
   }
   *,
   *::before,

@@ -7,7 +7,7 @@ export function Projetos() {
       {/* Vídeo de ambiente ao fundo, bem apagado: dá textura sem competir
           com o conteúdo, que é o que importa nesta seção. */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="h-full w-full opacity-[0.18]">
+        <div className="parallax h-[112%] w-full opacity-[0.18]">
           <ScrollVideo
             src={VIDEOS.projetos.arquivo || undefined}
             mode="ambient"
@@ -38,7 +38,7 @@ export function Projetos() {
                 </div>
 
                 <div>
-                  <h3 className="font-display text-3xl font-bold text-paper transition-colors group-hover:text-ultraviolet md:text-5xl">
+                  <h3 className="reveal-clip font-display text-3xl font-bold text-paper transition-colors group-hover:text-ultraviolet md:text-5xl">
                     {projeto.titulo}
                   </h3>
                   <p className="mt-4 max-w-2xl text-lg leading-relaxed text-lilac">

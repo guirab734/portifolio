@@ -29,7 +29,7 @@ export function Stack() {
             </dl>
           </div>
 
-          <div className="reveal aspect-square">
+          <div className="parallax aspect-square">
             <ScrollVideo
               src={VIDEOS.stack.arquivo || undefined}
               mode="ambient"
