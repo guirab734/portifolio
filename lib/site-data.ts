@@ -17,11 +17,11 @@ export function whatsappUrl(idioma: Idioma) {
 }
 
 export const SECTIONS = [
-  { id: "inicio", timecode: "00:00" },
-  { id: "sobre", timecode: "00:12" },
-  { id: "projetos", timecode: "00:28" },
-  { id: "stack", timecode: "00:51" },
-  { id: "contato", timecode: "01:04" },
+  { id: "inicio" },
+  { id: "sobre" },
+  { id: "projetos" },
+  { id: "stack" },
+  { id: "contato" },
 ] as const;
 
 export const VIDEOS = {

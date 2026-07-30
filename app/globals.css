@@ -87,16 +87,6 @@ body {
   }
 }
 
-.cursor-pisca {
-  animation: pisca 1.1s steps(2, start) infinite;
-}
-
-@keyframes pisca {
-  to {
-    opacity: 0;
-  }
-}
-
 /* Revelação por corte: o conteúdo é descoberto de baixo para cima, como uma
    cortina subindo. Serve para linhas e títulos, onde o deslocamento do fade
    simples fica frouxo. */
