@@ -30,7 +30,7 @@ export function Contato() {
 
           <a
             href={`mailto:${PERFIL.email}`}
-            className="mt-8 block font-display text-giga font-bold break-all text-paper transition-colors hover:text-ultraviolet"
+            className="reveal-clip mt-8 block font-display text-giga font-bold break-all text-paper transition-colors hover:text-ultraviolet"
           >
             {PERFIL.email}
           </a>
