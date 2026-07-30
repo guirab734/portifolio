@@ -33,12 +33,12 @@ export const T = {
       retrato: "Retrato",
     },
 
-    transicao: "O que eu construí até agora.",
-
     projetos: {
       selecionados: (n: number) => `${n} selecionados`,
       verAoVivo: "Ver ao vivo",
       codigo: "Código",
+      tipos: { landing: "Landing Pages", app: "Apps", programa: "Programas" },
+      vazio: "Ainda não tem projeto nesta categoria.",
       itens: [
         {
           resumo:
@@ -47,8 +47,23 @@ export const T = {
         },
         {
           resumo:
-            "O que ele faz e qual decisão de construção foi interessante. Recrutador lê isso em cinco segundos.",
+            "Uma página de conversão: o que ela vende e qual resultado deu. Número convence mais que adjetivo.",
+          papel: "Design e front-end",
+        },
+        {
+          resumo:
+            "O que o app faz e qual decisão de construção foi interessante. Recrutador lê isso em cinco segundos.",
           papel: "Full-stack",
+        },
+        {
+          resumo:
+            "Um app com login e dados de verdade. Diga onde ele está publicado e quantas pessoas usam.",
+          papel: "Full-stack",
+        },
+        {
+          resumo:
+            "Um programa de desktop ou script que resolveu um problema seu. Vale contar o que te levou a escrever.",
+          papel: "Desenvolvimento",
         },
         {
           resumo:
@@ -98,12 +113,12 @@ export const T = {
       retrato: "Portrait",
     },
 
-    transicao: "What I have built so far.",
-
     projetos: {
       selecionados: (n: number) => `${n} selected`,
       verAoVivo: "Live site",
       codigo: "Source",
+      tipos: { landing: "Landing Pages", app: "Apps", programa: "Software" },
+      vazio: "No project in this category yet.",
       itens: [
         {
           resumo:
@@ -112,8 +127,23 @@ export const T = {
         },
         {
           resumo:
-            "What it does and which build decision was interesting. A recruiter reads this in five seconds.",
+            "A conversion page: what it sells and what result it got. A number convinces more than an adjective.",
+          papel: "Design and front-end",
+        },
+        {
+          resumo:
+            "What the app does and which build decision was interesting. A recruiter reads this in five seconds.",
           papel: "Full-stack",
+        },
+        {
+          resumo:
+            "An app with real logins and data. Say where it is deployed and how many people use it.",
+          papel: "Full-stack",
+        },
+        {
+          resumo:
+            "A desktop program or script that solved a problem of yours. Worth telling what led you to write it.",
+          papel: "Development",
         },
         {
           resumo:
