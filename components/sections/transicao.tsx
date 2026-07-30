@@ -1,12 +1,12 @@
+"use client";
+
 import { ScrollVideo } from "@/components/scroll-video";
+import { useIdioma } from "@/components/idioma";
 import { VIDEOS } from "@/lib/site-data";
 
-/**
- * Faixa curta entre Sobre e Projetos. O clipe vertical do feixe de luz é
- * estreito por natureza, então funciona melhor aqui, como respiro, do que
- * disputando espaço com o retrato.
- */
 export function Transicao() {
+  const { t } = useIdioma();
+
   return (
     <section className="relative h-[150vh] border-t border-lilac/10">
       <div className="sticky top-0 flex h-screen items-center justify-center overflow-hidden">
@@ -23,7 +23,7 @@ export function Transicao() {
         </div>
 
         <p className="reveal relative max-w-2xl px-6 text-center font-display text-giga font-bold text-paper">
-          O que eu construí até agora.
+          {t.transicao}
         </p>
       </div>
     </section>

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque, Inter_Tight, JetBrains_Mono } from "next/font/google";
+import { IdiomaProvider } from "@/components/idioma";
 import "./globals.css";
 
 const bricolage = Bricolage_Grotesque({
@@ -48,7 +49,9 @@ export default function RootLayout({
       lang="pt-BR"
       className={`${bricolage.variable} ${interTight.variable} ${jetbrains.variable}`}
     >
-      <body className="grain">{children}</body>
+      <body className="grain">
+        <IdiomaProvider>{children}</IdiomaProvider>
+      </body>
     </html>
   );
 }
