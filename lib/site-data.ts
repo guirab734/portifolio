@@ -13,14 +13,11 @@ export const PERFIL = {
   local: "Brasil",
   email: "guirab734@gmail.com",
   github: "https://github.com/guirab734",
-  // PREENCHER: linkedin, se houver.
-  linkedin: "",
-  // Número no formato internacional, sem símbolos, como a API do WhatsApp exige.
+  linkedin: "https://www.linkedin.com/in/guirab/",
   whatsapp: "5579999076521",
   whatsappMensagem: "Olá, Guilherme! Vi seu portfólio e queria conversar.",
 };
 
-/** Link da API oficial do WhatsApp, com a mensagem já preenchida. */
 export const whatsappUrl = `https://wa.me/${PERFIL.whatsapp}?text=${encodeURIComponent(
   PERFIL.whatsappMensagem,
 )}`;
@@ -33,10 +30,7 @@ export const SECTIONS = [
   { id: "contato", label: "Contato", timecode: "01:04" },
 ] as const;
 
-/**
- * Cada vídeo gerado no Leonardo entra em /public/videos com o nome do campo
- * `arquivo`. Enquanto o arquivo não existir, o componente mostra o placeholder.
- */
+
 export const VIDEOS = {
   hero: { arquivo: "/videos/hero.mp4", slot: "VÍDEO 01 — HERO", duracao: "10s · scrub" },
   transicao: { arquivo: "/videos/transicao.mp4", slot: "VÍDEO 02 — TRANSIÇÃO", duracao: "5s · scrub" },
@@ -56,8 +50,7 @@ export type Projeto = {
   imagem?: string;
 };
 
-// PREENCHER: trocar pelos projetos reais. Três é um bom número para começar —
-// melhor três bem contados que oito pela metade.
+
 export const PROJETOS: Projeto[] = [
   {
     titulo: "Projeto Um",
@@ -91,7 +84,7 @@ export const PROJETOS: Projeto[] = [
   },
 ];
 
-// PREENCHER: manter apenas o que você realmente usaria numa entrevista.
+
 export const STACK = [
   { grupo: "Front-end", itens: ["Next.js", "React", "TypeScript", "Tailwind CSS"] },
   { grupo: "Back-end", itens: ["Node.js", "APIs REST", "PostgreSQL"] },
