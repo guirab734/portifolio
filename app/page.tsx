@@ -2,7 +2,6 @@
 
 import { BotaoIdioma, useIdioma } from "@/components/idioma";
 import { ScrollSuave } from "@/components/scroll-suave";
-import { ComputadorFlutuante } from "@/components/computador-flutuante";
 import { Timeline } from "@/components/timeline";
 import { Hero } from "@/components/sections/hero";
 import { Sobre } from "@/components/sections/sobre";
@@ -24,7 +23,6 @@ export default function Home() {
       </a>
       <BotaoIdioma />
       <Timeline />
-      <ComputadorFlutuante />
       <main>
         <Hero />
         <Sobre />

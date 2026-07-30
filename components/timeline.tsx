@@ -64,22 +64,11 @@ export function Timeline() {
               <a
                 href={`#${secao.id}`}
                 aria-current={atual ? "true" : undefined}
-                className="group flex items-baseline gap-3 font-mono text-[0.65rem] tracking-[0.2em] uppercase"
+                className={`block font-mono text-[0.65rem] tracking-[0.2em] uppercase transition-colors ${
+                  atual ? "text-paper" : "text-lilac/40 hover:text-lilac"
+                }`}
               >
-                <span
-                  className={
-                    atual ? "text-magenta" : "text-lilac/40 transition-colors group-hover:text-lilac"
-                  }
-                >
-                  {secao.timecode}
-                </span>
-                <span
-                  className={
-                    atual ? "text-paper" : "text-lilac/40 transition-colors group-hover:text-lilac"
-                  }
-                >
-                  {t.secoes[secao.id]}
-                </span>
+                {t.secoes[secao.id]}
               </a>
             </li>
           );
