@@ -26,17 +26,29 @@ export const SECTIONS = [
 
 export const VIDEOS = {
   hero: { arquivo: "/videos/hero.mp4", slot: "VÍDEO 01 — HERO", duracao: "10s · scrub" },
-  transicao: { arquivo: "/videos/transicao.mp4", slot: "VÍDEO 02 — TRANSIÇÃO", duracao: "5s · scrub" },
   projetos: { arquivo: "/videos/projetos.mp4", slot: "VÍDEO 03 — AMBIENTE", duracao: "12s · loop" },
   stack: { arquivo: "/videos/stack.mp4", slot: "VÍDEO 04 — ESTRUTURA", duracao: "6s · loop" },
   fecho: { arquivo: "/videos/fecho.mp4", slot: "VÍDEO 05 — FECHO", duracao: "8s · scrub" },
 };
 
+export const TIPOS = ["landing", "app", "programa"] as const;
+export type Tipo = (typeof TIPOS)[number];
+
 // Texto de resumo e papel vem do dicionário, na mesma ordem desta lista
-export const PROJETOS = [
-  { titulo: "Projeto Um", ano: "2026", stack: ["Next.js", "TypeScript", "Tailwind"], repo: "", demo: "" },
-  { titulo: "Projeto Dois", ano: "2025", stack: ["React", "Node.js", "PostgreSQL"], repo: "", demo: "" },
-  { titulo: "Projeto Três", ano: "2025", stack: ["JavaScript", "API REST"], repo: "", demo: "" },
+export const PROJETOS: {
+  titulo: string;
+  tipo: Tipo;
+  ano: string;
+  stack: string[];
+  repo?: string;
+  demo?: string;
+}[] = [
+  { titulo: "Landing Um", tipo: "landing", ano: "2026", stack: ["Next.js", "Tailwind"], repo: "", demo: "" },
+  { titulo: "Landing Dois", tipo: "landing", ano: "2025", stack: ["Astro", "Tailwind"], repo: "", demo: "" },
+  { titulo: "App Um", tipo: "app", ano: "2026", stack: ["React", "Node.js", "PostgreSQL"], repo: "", demo: "" },
+  { titulo: "App Dois", tipo: "app", ano: "2025", stack: ["React Native", "Expo"], repo: "", demo: "" },
+  { titulo: "Programa Um", tipo: "programa", ano: "2025", stack: ["Python", "SQLite"], repo: "", demo: "" },
+  { titulo: "Programa Dois", tipo: "programa", ano: "2025", stack: ["JavaScript", "API REST"], repo: "", demo: "" },
 ];
 
 export const STACK = [
