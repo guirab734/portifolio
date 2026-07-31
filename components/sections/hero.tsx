@@ -96,6 +96,7 @@ export function Hero() {
               <ScrollVideo
                 src={VIDEOS.hero.arquivo || undefined}
                 mode="scrub"
+                prioridade
                 slot={VIDEOS.hero.slot}
                 duration={VIDEOS.hero.duracao}
               />
