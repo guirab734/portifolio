@@ -20,6 +20,8 @@ type Props = {
    * quatro bordas. Só faz sentido em clipes de fundo preto com assunto claro.
    */
   blend?: boolean;
+  /** Baixa o arquivo inteiro já na carga. Reservar para o que abre a página. */
+  prioridade?: boolean;
 };
 
 export function ScrollVideo({
@@ -29,6 +31,7 @@ export function ScrollVideo({
   duration,
   className = "",
   blend = false,
+  prioridade = false,
 }: Props) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const hostRef = useRef<HTMLDivElement>(null);
@@ -106,7 +109,7 @@ export function ScrollVideo({
         src={src}
         muted
         playsInline
-        preload="auto"
+        preload={prioridade ? "auto" : "metadata"}
         loop={mode === "ambient"}
         autoPlay={mode === "ambient"}
         onLoadedMetadata={() => setReady(true)}
