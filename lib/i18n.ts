@@ -31,12 +31,7 @@ export const T = {
         "Trabalho principalmente com React e Next.js, mas o que me interessa de verdade é a parte que o usuário sente: o tempo de resposta, o que acontece quando algo dá errado, o detalhe que ninguém nota até faltar.",
       ],
       retrato: "Retrato",
-      numeros: [
-        "anos de experiência",
-        "projetos entregues",
-        "clientes atendidos",
-        "projetos full-stack",
-      ],
+      numeros: ["anos de experiência", "projetos feitos", "clientes"],
     },
 
     projetos: {
@@ -117,12 +112,7 @@ export const T = {
         "I work mostly with React and Next.js, but what really interests me is the part the user feels: response time, what happens when something breaks, the detail nobody notices until it is missing.",
       ],
       retrato: "Portrait",
-      numeros: [
-        "years of experience",
-        "projects delivered",
-        "clients served",
-        "full-stack projects",
-      ],
+      numeros: ["years of experience", "projects built", "clients"],
     },
 
     projetos: {
