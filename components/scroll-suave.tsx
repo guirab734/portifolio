@@ -13,10 +13,12 @@ export function ScrollSuave() {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     const lenis = new Lenis({
-      duration: 1.15,
-      // desacelera no fim, sem repique
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      touchMultiplier: 1.6,
+      duration: 1.8,
+      // desacelera longo no fim, sem repique
+      easing: (t) => 1 - Math.pow(1 - t, 4),
+      wheelMultiplier: 0.85,
+      touchMultiplier: 1.5,
+      lerp: 0.06,
     });
 
     let frame = requestAnimationFrame(function loop(tempo) {

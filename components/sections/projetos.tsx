@@ -17,7 +17,7 @@ export function Projetos() {
     <section id="projetos" className="relative border-t border-lilac/10">
       {/* Ambiente ao fundo, bem apagado: dá textura sem disputar com a leitura */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="parallax h-[112%] w-full opacity-[0.18]">
+        <div className="parallax h-[112%] w-full opacity-[0.34]">
           <ScrollVideo
             src={VIDEOS.projetos.arquivo || undefined}
             mode="ambient"

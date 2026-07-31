@@ -20,7 +20,7 @@ export const T = {
       inicio: "Início",
       sobre: "Sobre",
       projetos: "Projetos",
-      stack: "Stack",
+      stack: "Stacks",
       contato: "Contato",
     },
 
@@ -101,7 +101,7 @@ export const T = {
       inicio: "Start",
       sobre: "About",
       projetos: "Work",
-      stack: "Stack",
+      stack: "Stacks",
       contato: "Contact",
     },
 
