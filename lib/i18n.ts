@@ -36,42 +36,40 @@ export const T = {
 
     projetos: {
       selecionados: (n: number) => `${n} selecionados`,
+      verMais: "Ver mais",
       verAoVivo: "Ver ao vivo",
+      baixarAndroid: "Baixar para Android",
       codigo: "Código",
+      emBreve: "Publicação em breve",
       tipos: { landing: "Landing Pages", app: "Apps", programa: "Programas" },
       vazio: "Ainda não tem projeto nesta categoria.",
-      itens: [
-        {
+      itens: {
+        radar: {
           resumo:
-            "Uma frase sobre o problema que ele resolve e para quem. Não sobre a tecnologia — a stack aparece logo abaixo.",
-          papel: "Concepção, front-end e deploy",
+            "Funciona como bússola e acompanha a localização em tempo real, mas o que ele faz de diferente é detectar impactos — quedas, pancadas, colisões — pelo acelerômetro do aparelho, registrando cada ocorrência num backend.",
+          papel: "Mobile e integração",
         },
-        {
+        cantinho: {
           resumo:
-            "Uma página de conversão: o que ela vende e qual resultado deu. Número convence mais que adjetivo.",
-          papel: "Design e front-end",
+            "Gestão de comandas para restaurantes: o pedido sai do salão e chega à cozinha na hora, com cada função enxergando só a sua tela. Garçom e cozinha ficam sincronizados sem ninguém precisar gritar pedido.",
+          papel: "Projeto em equipe",
         },
-        {
+        estoque: {
           resumo:
-            "O que o app faz e qual decisão de construção foi interessante. Recrutador lê isso em cinco segundos.",
-          papel: "Full-stack",
+            "Controle de estoque de peças de hardware — placas de vídeo, memórias, componentes. Cadastra, edita e remove itens, com um painel que mostra as métricas do estoque em tempo real.",
+          papel: "Projeto em equipe",
         },
-        {
+        ggames: {
           resumo:
-            "Um app com login e dados de verdade. Diga onde ele está publicado e quantas pessoas usam.",
-          papel: "Full-stack",
-        },
-        {
-          resumo:
-            "Um programa de desktop ou script que resolveu um problema seu. Vale contar o que te levou a escrever.",
+            "Sistema de mesa para uma locadora de setups gamer. Controla o aluguel dos equipamentos, as devoluções e os upgrades de hardware — começou como um CRUD em memória e virou um programa de verdade.",
           papel: "Desenvolvimento",
         },
-        {
+        brownies: {
           resumo:
-            "Se for trabalho de faculdade ou pessoal, tudo bem dizer. Honestidade lê melhor que inflar.",
-          papel: "Desenvolvimento",
+            "Cardápio digital de uma confeitaria de brownies, feito na base do HTML e CSS. Trabalho de curso, e é justamente por isso que ele mostra o começo do caminho.",
+          papel: "Front-end",
         },
-      ],
+      },
     },
 
     stack: {
@@ -117,42 +115,40 @@ export const T = {
 
     projetos: {
       selecionados: (n: number) => `${n} selected`,
+      verMais: "See more",
       verAoVivo: "Live site",
+      baixarAndroid: "Download for Android",
       codigo: "Source",
+      emBreve: "Publishing soon",
       tipos: { landing: "Landing Pages", app: "Apps", programa: "Software" },
       vazio: "No project in this category yet.",
-      itens: [
-        {
+      itens: {
+        radar: {
           resumo:
-            "One sentence about the problem it solves and who for. Not about the technology — the stack shows up right below.",
-          papel: "Concept, front-end and deploy",
+            "It works as a compass and tracks location in real time, but what sets it apart is detecting impacts — falls, knocks, collisions — through the device accelerometer, logging every event to a backend.",
+          papel: "Mobile and integration",
         },
-        {
+        cantinho: {
           resumo:
-            "A conversion page: what it sells and what result it got. A number convinces more than an adjective.",
-          papel: "Design and front-end",
+            "Order management for restaurants: the order leaves the floor and reaches the kitchen right away, with each role seeing only its own screen. Waiter and kitchen stay in sync without anyone shouting an order.",
+          papel: "Team project",
         },
-        {
+        estoque: {
           resumo:
-            "What the app does and which build decision was interesting. A recruiter reads this in five seconds.",
-          papel: "Full-stack",
+            "Inventory control for hardware parts — graphics cards, memory, components. Create, edit and remove items, with a panel showing stock metrics in real time.",
+          papel: "Team project",
         },
-        {
+        ggames: {
           resumo:
-            "An app with real logins and data. Say where it is deployed and how many people use it.",
-          papel: "Full-stack",
-        },
-        {
-          resumo:
-            "A desktop program or script that solved a problem of yours. Worth telling what led you to write it.",
+            "Desktop system for a gaming setup rental shop. It handles equipment rentals, returns and hardware upgrades — it started as an in-memory CRUD and grew into a real program.",
           papel: "Development",
         },
-        {
+        brownies: {
           resumo:
-            "If it is coursework or a personal project, say so. Honesty reads better than padding.",
-          papel: "Development",
+            "Digital menu for a brownie shop, built on plain HTML and CSS. Coursework, and that is exactly why it shows where the path started.",
+          papel: "Front-end",
         },
-      ],
+      },
     },
 
     stack: {
