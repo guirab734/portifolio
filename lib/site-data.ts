@@ -34,28 +34,74 @@ export const VIDEOS = {
 export const TIPOS = ["landing", "app", "programa"] as const;
 export type Tipo = (typeof TIPOS)[number];
 
-// Texto de resumo e papel vem do dicionário, na mesma ordem desta lista
-export const PROJETOS: {
+export type Projeto = {
+  id: string;
   titulo: string;
   tipo: Tipo;
   ano: string;
   stack: string[];
-  repo?: string;
+  repo: string;
+  /** Site publicado. Aparece como "Ver ao vivo". */
   demo?: string;
-}[] = [
-  { titulo: "Landing Um", tipo: "landing", ano: "2026", stack: ["Next.js", "Tailwind"], repo: "", demo: "" },
-  { titulo: "Landing Dois", tipo: "landing", ano: "2025", stack: ["Astro", "Tailwind"], repo: "", demo: "" },
-  { titulo: "App Um", tipo: "app", ano: "2026", stack: ["React", "Node.js", "PostgreSQL"], repo: "", demo: "" },
-  { titulo: "App Dois", tipo: "app", ano: "2025", stack: ["React Native", "Expo"], repo: "", demo: "" },
-  { titulo: "Programa Um", tipo: "programa", ano: "2025", stack: ["Python", "SQLite"], repo: "", demo: "" },
-  { titulo: "Programa Dois", tipo: "programa", ano: "2025", stack: ["JavaScript", "API REST"], repo: "", demo: "" },
+  /** APK ou link da loja. Aparece como "Baixar para Android". */
+  android?: string;
+  /** Captura em public/projetos. Sem ela o card mostra o espaço reservado. */
+  imagem?: string;
+};
+
+// Texto de resumo e papel vem do dicionário, na mesma ordem desta lista
+export const PROJETOS: Projeto[] = [
+  {
+    id: "radar",
+    titulo: "Radar de Impacto",
+    tipo: "app",
+    ano: "2026",
+    stack: ["React Native", "Expo", "Acelerômetro", "GPS", "Node.js"],
+    repo: "https://github.com/guirab734/react-nation-bussola",
+    android: "",
+  },
+  {
+    id: "cantinho",
+    titulo: "Cantinho Pedidos",
+    tipo: "app",
+    ano: "2026",
+    stack: ["React Native", "Expo", "Node.js", "Express", "PostgreSQL", "JWT"],
+    repo: "https://github.com/BrendoBarbosa25/Cantinho-Pedidos",
+    android: "",
+  },
+  {
+    id: "estoque",
+    titulo: "Estoque de Hardware",
+    tipo: "app",
+    ano: "2026",
+    stack: ["JavaScript", "Full-stack", "CRUD", "Dashboard"],
+    repo: "https://github.com/bellatrixishere/Projeto-Final",
+    demo: "",
+  },
+  {
+    id: "ggames",
+    titulo: "GGAMES",
+    tipo: "programa",
+    ano: "2026",
+    stack: ["C#", ".NET", "Desktop", "POO"],
+    repo: "https://github.com/guirab734/projeto-c",
+  },
+  {
+    id: "brownies",
+    titulo: "Brownies da Soso",
+    tipo: "landing",
+    ano: "2026",
+    stack: ["HTML", "CSS"],
+    repo: "https://github.com/guirab734/Brownies-da-soso-card-pio",
+    demo: "",
+  },
 ];
 
 export const STACK = [
   ["TypeScript", "JavaScript", "C#", "C++", "Python"],
   ["React", "React Native", "Next.js", "Tailwind CSS", "HTML", "CSS"],
-  ["Node.js", "Express", "APIs REST", "PostgreSQL", "MySQL", "MongoDB"],
-  ["Git", "Vercel", "Docker", "Figma"],
+  ["Node.js", "Express", "APIs REST", "Supabase", "PostgreSQL", "MySQL", "MongoDB"],
+  ["Git", "Vercel", "Docker", "Expo", "Figma"],
 ];
 
 export const NUMEROS = [{ valor: "6" }, { valor: "15" }, { valor: "12" }];
