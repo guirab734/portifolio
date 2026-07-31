@@ -45,8 +45,10 @@ export type Projeto = {
   demo?: string;
   /** APK ou link da loja. Aparece como "Baixar para Android". */
   android?: string;
-  /** Captura em public/projetos. Sem ela o card mostra o espaço reservado. */
+  /** Captura em public/projetos. Sem ela vale a miniatura do vídeo. */
   imagem?: string;
+  /** ID do vídeo no YouTube. A miniatura vira a capa e o vídeo abre em Ver mais. */
+  video?: string;
 };
 
 // Texto de resumo e papel vem do dicionário, na mesma ordem desta lista
@@ -59,6 +61,7 @@ export const PROJETOS: Projeto[] = [
     stack: ["React Native", "Expo", "Acelerômetro", "GPS", "Node.js"],
     repo: "https://github.com/guirab734/react-nation-bussola",
     android: "",
+    video: "cKQsOm6DPR8",
   },
   {
     id: "cantinho",
@@ -68,6 +71,7 @@ export const PROJETOS: Projeto[] = [
     stack: ["React Native", "Expo", "Node.js", "Express", "PostgreSQL", "JWT"],
     repo: "https://github.com/BrendoBarbosa25/Cantinho-Pedidos",
     android: "",
+    video: "4QmSsesZbsM",
   },
   {
     id: "estoque",
