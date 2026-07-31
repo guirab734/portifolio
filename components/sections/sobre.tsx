@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useIdioma } from "@/components/idioma";
+import { NumeroAnimado } from "@/components/numero-animado";
 import { NUMEROS, PERFIL } from "@/lib/site-data";
 
 export function Sobre() {
@@ -49,7 +50,7 @@ export function Sobre() {
                   </dt>
                   <dd className="mt-2 font-display text-4xl font-extrabold text-paper md:text-6xl">
                     <span className="text-ultraviolet">+</span>
-                    {numero.valor}
+                    <NumeroAnimado valor={Number(numero.valor)} />
                   </dd>
                 </div>
               ))}
