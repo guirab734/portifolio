@@ -81,6 +81,13 @@ function Card({ projeto }: { projeto: Projeto }) {
   const [aberto, setAberto] = useState(false);
   const texto = t.projetos.itens[projeto.id as keyof typeof t.projetos.itens];
 
+  // Sem captura própria, a miniatura do vídeo serve de capa
+  const capa =
+    projeto.imagem ??
+    (projeto.video
+      ? `https://img.youtube.com/vi/${projeto.video}/maxresdefault.jpg`
+      : undefined);
+
   // O destino do "ver mais" muda com o tipo: app baixa, web abre, resto vai ao código
   const principal = projeto.android
     ? { href: projeto.android, rotulo: t.projetos.baixarAndroid }
@@ -91,23 +98,44 @@ function Card({ projeto }: { projeto: Projeto }) {
   return (
     <li className="group overflow-hidden border border-lilac/15 bg-surface/40 transition-colors hover:border-ultraviolet/50">
       <div className="relative aspect-[16/10] overflow-hidden bg-void">
-        {projeto.imagem ? (
-          <Image
-            src={projeto.imagem}
-            alt={projeto.titulo}
-            fill
-            sizes="(max-width: 768px) 100vw, 45vw"
-            className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+        {aberto && projeto.video ? (
+          <iframe
+            src={`https://www.youtube-nocookie.com/embed/${projeto.video}?autoplay=1&rel=0&modestbranding=1`}
+            title={projeto.titulo}
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="absolute inset-0 h-full w-full border-0"
           />
+        ) : capa ? (
+          <>
+            <Image
+              src={capa}
+              alt={projeto.titulo}
+              fill
+              unoptimized={!projeto.imagem}
+              sizes="(max-width: 768px) 100vw, 45vw"
+              className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+            />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent" />
+            {projeto.video && (
+              <span className="pointer-events-none absolute inset-0 flex items-center justify-center">
+                <span className="flex h-14 w-14 items-center justify-center rounded-full border border-paper/40 bg-void/50 backdrop-blur-sm transition-colors group-hover:border-magenta">
+                  <svg viewBox="0 0 24 24" className="ml-0.5 h-5 w-5 fill-paper" aria-hidden>
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </span>
+              </span>
+            )}
+          </>
         ) : (
           <div className="flex h-full w-full items-center justify-center">
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_45%,var(--color-ultraviolet)_0%,transparent_65%)] opacity-20" />
             <span className="relative font-display text-3xl font-bold text-lilac/25">
               {projeto.titulo}
             </span>
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent" />
           </div>
         )}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent" />
       </div>
 
       <div className="p-6">
