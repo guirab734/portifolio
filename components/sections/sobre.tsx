@@ -41,16 +41,14 @@ export function Sobre() {
               ))}
             </div>
 
-            <dl className="mt-16 grid grid-cols-2 gap-x-8 gap-y-10 border-t border-lilac/10 pt-10">
+            <dl className="mt-16 grid grid-cols-3 gap-x-6 border-t border-lilac/10 pt-10">
               {NUMEROS.map((numero, i) => (
                 <div key={i} className="reveal">
-                  <dt className="font-mono text-[0.62rem] leading-relaxed tracking-[0.2em] text-lilac/60 uppercase">
+                  <dt className="font-mono text-[0.6rem] leading-relaxed tracking-[0.18em] text-lilac/60 uppercase">
                     {t.sobre.numeros[i]}
                   </dt>
-                  <dd className="mt-2 font-display text-5xl font-extrabold text-paper md:text-6xl">
-                    {numero.valor !== "—" && (
-                      <span className="text-ultraviolet">+</span>
-                    )}
+                  <dd className="mt-2 font-display text-4xl font-extrabold text-paper md:text-6xl">
+                    <span className="text-ultraviolet">+</span>
                     {numero.valor}
                   </dd>
                 </div>

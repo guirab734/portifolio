@@ -1,38 +1,67 @@
 "use client";
 
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import { ScrollVideo } from "@/components/scroll-video";
 import { useIdioma } from "@/components/idioma";
 import { PERFIL, VIDEOS } from "@/lib/site-data";
 import { fatia, useScrollProgress } from "@/lib/use-scroll-progress";
 
-// Cantos da tela dentro de monitor.webp, medidos na imagem. O monitor está
-// levemente girado, então o lado direito começa mais abaixo que o esquerdo.
+const IMG = { w: 2752, h: 1536 };
+
+// Cantos da tela dentro de monitor.webp, em porcentagem da imagem. O monitor
+// está levemente girado, então o lado direito começa mais abaixo que o esquerdo.
 const TELA = [
-  [21.9, 8.2],
-  [77.4, 12.4],
-  [77.4, 67.2],
-  [21.9, 70.0],
+  [37.4, 29.6],
+  [63.2, 31.4],
+  [63.2, 57.8],
+  [37.4, 60.5],
 ] as const;
 
 const lerp = (a: number, b: number, t: number) => a + (b - a) * t;
 
-const MASCARA_MONITOR =
-  "radial-gradient(ellipse 74% 80% at 50% 48%, #000 58%, transparent 94%)";
-
 export function Hero() {
   const { t } = useIdioma();
   const { ref, progress } = useScrollProgress<HTMLElement>();
+  const [vp, setVp] = useState({ w: 0, h: 0 });
+
+  useEffect(() => {
+    const medir = () => setVp({ w: window.innerWidth, h: window.innerHeight });
+    medir();
+    window.addEventListener("resize", medir);
+    return () => window.removeEventListener("resize", medir);
+  }, []);
 
   const zoom = fatia(progress, 0, 0.6);
   const abertura = fatia(progress, 0.42, 0.72);
-  const ambiente = 1 - fatia(progress, 0.1, 0.5);
   const titulo = fatia(progress, 0.66, 0.86);
 
-  const escala = 0.34 + Math.pow(zoom, 2) * 2.5;
+  // A foto já enquadra o monitor de longe, então a sequência só amplia: começa
+  // no tamanho natural dela e vai até a tela dominar a viewport.
+  const escala = 1 + Math.pow(zoom, 2) * 3.1;
+
+  /**
+   * `object-cover` recorta a foto para preencher a viewport, então uma
+   * porcentagem medida na imagem não cai no mesmo ponto da tela. Aqui refazemos
+   * a conta do cover para converter os cantos da tela em coordenadas da
+   * viewport — sem isso o vídeo encaixa torto em telas de proporção diferente.
+   */
+  const paraViewport = ([x, y]: readonly [number, number]) => {
+    if (!vp.w || !vp.h) return [x, y] as const;
+    const cover = Math.max(vp.w / IMG.w, vp.h / IMG.h);
+    const larguraReal = IMG.w * cover;
+    const alturaReal = IMG.h * cover;
+    const sobraX = (larguraReal - vp.w) / 2;
+    const sobraY = (alturaReal - vp.h) / 2;
+    return [
+      ((x / 100) * larguraReal - sobraX) / vp.w * 100,
+      ((y / 100) * alturaReal - sobraY) / vp.h * 100,
+    ] as const;
+  };
 
   // A tela abre até virar a viewport inteira, sem trocar de elemento
-  const recorte = TELA.map(([x, y], i) => {
+  const recorte = TELA.map((canto, i) => {
+    const [x, y] = paraViewport(canto);
     const destino = [
       [0, 0],
       [100, 0],
@@ -45,14 +74,9 @@ export function Hero() {
   return (
     <section ref={ref} id="inicio" className="relative h-[420vh]">
       <div className="sticky top-0 h-screen overflow-hidden">
-        <div
-          className="absolute inset-0 bg-[radial-gradient(ellipse_55%_45%_at_50%_45%,#141024_0%,#09070f_60%)]"
-          style={{ opacity: ambiente }}
-        />
-
-        <div className="absolute inset-0 flex items-center justify-center">
+        <div className="absolute inset-0">
           <div
-            className="relative aspect-[2752/1536] w-[72vw] max-w-[1240px] will-change-transform"
+            className="relative h-full w-full will-change-transform"
             style={{ transform: `scale(${escala})` }}
           >
             <Image
@@ -60,15 +84,9 @@ export function Hero() {
               alt=""
               fill
               priority
-              sizes="72vw"
-              className="object-contain"
-              style={{
-                opacity: 1 - abertura,
-                // O preto da foto não é o preto da página: sem dissolver as
-                // bordas, o retângulo da imagem fica visível sobre o fundo.
-                maskImage: MASCARA_MONITOR,
-                WebkitMaskImage: MASCARA_MONITOR,
-              }}
+              sizes="100vw"
+              className="object-cover"
+              style={{ opacity: 1 - abertura }}
             />
 
             <div
