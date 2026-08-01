@@ -6,31 +6,54 @@ Portfólio pessoal. Next.js 16, React 19, TypeScript e Tailwind 4.
 npm run dev
 ```
 
+Publicado na Vercel a cada push na `main`.
+
 ## Como o site é organizado
 
-Uma página só, cinco seções, navegação em forma de timeline lateral — o site é
-movido a vídeo, então a régua de progresso usa o mesmo vocabulário.
+Uma página, cinco seções, navegação lateral fixa com marca de progresso.
 
-| Seção | Vídeo | Modo |
+| Seção | Vídeo de fundo | Modo |
 |---|---|---|
 | Início | 01 — Hero, 10s | scrub |
-| Sobre | 02 — Transição, 5s | scrub |
+| Sobre | — | — |
 | Projetos | 03 — Ambiente, 12s | loop |
-| Stack | 04 — Estrutura, 6s | loop |
+| Stacks | 04 — Estrutura, 6s | loop |
 | Contato | 05 — Fecho, 8s | scrub |
 
-**scrub** significa que o scroll controla o tempo do vídeo, quadro a quadro.
-**loop** é reprodução contínua ao fundo.
+**scrub** é o scroll controlando o tempo do vídeo quadro a quadro; **loop** é
+reprodução contínua ao fundo.
+
+A abertura entra pela tela de um monitor: o recorte da tela se expande até virar
+a viewport, sem trocar de elemento. Como `object-cover` corta a foto para
+preencher a tela, os cantos medidos na imagem são convertidos para coordenadas
+da viewport em tempo real — sem isso o vídeo encaixa torto em telas de proporção
+diferente.
+
+O clipe 02 não é usado hoje; o arquivo segue em `public/videos` para
+reaproveitamento.
 
 ## Onde mexer
 
-Todo o conteúdo está em [`lib/site-data.ts`](lib/site-data.ts) — projetos,
-stack, dados de contato e os caminhos dos vídeos. Editar esse arquivo muda a
-página inteira sem tocar em componente nenhum. Os campos marcados com
-`PREENCHER` ainda são placeholder.
+Conteúdo e dados em [`lib/site-data.ts`](lib/site-data.ts): projetos, stack,
+números e contato. Textos nos dois idiomas em [`lib/i18n.ts`](lib/i18n.ts).
 
-Os prompts dos cinco vídeos estão em [`docs/videos.md`](docs/videos.md), junto
-com as instruções de instalação e o que ajustar se o resultado não vier bom.
+Os prompts dos vídeos estão em [`docs/videos.md`](docs/videos.md), com o
+diagnóstico do que deu errado em cada geração.
+
+Ao trocar imagens, apague `.next/cache/images` — o Next serve a versão anterior
+até o cache expirar.
+
+## Vídeo e scroll
+
+Os clipes em modo scrub têm keyframe a cada quatro quadros. Com keyframes
+esparsos o navegador precisa decodificar centenas de quadros a cada movimento do
+scroll, e a reprodução engasga; assim a busca fica em poucos milissegundos, ao
+custo de metade do peso de marcar todos os quadros.
+
+Fora o hero, os vídeos não baixam por inteiro na carga inicial.
+
+A rolagem é interpolada com Lenis. As âncoras passam pela biblioteca, senão o
+salto ignoraria a interpolação.
 
 ## Design
 
@@ -43,12 +66,21 @@ com as instruções de instalação e o que ajustar se o resultado não vier bom
 | `lilac` | `#C9BEE8` | texto secundário |
 | `paper` | `#F4F1FA` | texto principal |
 
-Bricolage Grotesque nos títulos, Inter Tight no corpo, JetBrains Mono nos
-timecodes e etiquetas.
+Bricolage Grotesque nos títulos, Inter Tight no corpo, JetBrains Mono nas
+etiquetas.
 
-As animações de entrada usam `animation-timeline: view()`, nativo do CSS, sem
-biblioteca de scroll. Navegadores sem suporte mostram o conteúdo direto, e
-`prefers-reduced-motion` desliga tudo.
+As entradas por scroll usam `animation-timeline` nativo, sem biblioteca de
+animação. Navegadores sem suporte mostram o conteúdo direto, e
+`prefers-reduced-motion` desliga tudo — inclusive a rolagem interpolada.
+
+Clipes com fundo escuro usam `mix-blend-mode: lighten` mais máscara radial para
+se fundirem à página. Isso só funciona com preto absoluto no arquivo: qualquer
+cinza acima do fundo do site aparece como um retângulo recortado.
+
+## Idiomas
+
+Português e inglês, com botão no canto superior direito. O primeiro acesso segue
+o idioma do navegador e a escolha fica salva. Todo texto sai de `lib/i18n.ts`.
 
 ## Ferramentas de IA
 
@@ -58,3 +90,8 @@ Servidores MCP em [`.mcp.json`](.mcp.json): `shadcn-ui` para componentes e
 
 A única chave é o `GITHUB_TOKEN`, opcional — evita o limite de 60 requisições
 por hora do `shadcn-ui`. Modelo em [`.env.example`](.env.example).
+
+## Medição
+
+Web Analytics e Speed Insights da Vercel estão no layout. Em desenvolvimento
+rodam em modo de depuração e não registram nada.
