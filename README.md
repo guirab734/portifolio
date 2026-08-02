@@ -82,15 +82,6 @@ cinza acima do fundo do site aparece como um retângulo recortado.
 Português e inglês, com botão no canto superior direito. O primeiro acesso segue
 o idioma do navegador e a escolha fica salva. Todo texto sai de `lib/i18n.ts`.
 
-## Ferramentas de IA
-
-Servidores MCP em [`.mcp.json`](.mcp.json): `shadcn-ui` para componentes e
-`chrome-devtools` para inspeção no navegador. As skills `frontend-design` e
-`web-design-guidelines` ficam em `.claude/skills/`.
-
-A única chave é o `GITHUB_TOKEN`, opcional — evita o limite de 60 requisições
-por hora do `shadcn-ui`. Modelo em [`.env.example`](.env.example).
-
 ## Medição
 
 Web Analytics e Speed Insights da Vercel estão no layout. Em desenvolvimento
