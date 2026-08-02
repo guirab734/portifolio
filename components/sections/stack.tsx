@@ -11,7 +11,7 @@ export function Stack() {
     <section id="stack" className="relative border-t border-lilac/10 py-32 md:py-48">
       <div className="mx-auto max-w-6xl px-6 md:px-12">
         <div className="grid gap-16 md:grid-cols-[1.4fr_1fr] md:gap-24">
-          <div>
+          <div className="min-w-0">
             <h2 className="reveal font-display text-giga font-bold text-paper">
               {t.stack.titulo}
             </h2>
@@ -34,7 +34,10 @@ export function Stack() {
             </dl>
           </div>
 
-          <div className="parallax aspect-square">
+          {/* self-center evita que o quadrado estique até a altura da linha: com
+              stretch, a proporção passa a ditar a largura da coluna, o texto é
+              espremido e a lista vaza para fora da seção. */}
+          <div className="parallax aspect-square min-w-0 self-center">
             <ScrollVideo
               src={VIDEOS.stack.arquivo || undefined}
               mode="ambient"
