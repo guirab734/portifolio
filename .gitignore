@@ -40,14 +40,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Excecoes e config local
-!.env.example
-.claude/settings.local.json
-
 # Originais pesados das fotos: o site usa foto.webp
 public/festa.png
 public/foto.jpeg
-
-# Config de outras ferramentas de IA
-.agents/
-.codex/
