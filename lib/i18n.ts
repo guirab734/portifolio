@@ -12,7 +12,7 @@ export const T = {
     local: "Brasil",
     roleParaEntrar: "Role para entrar",
     heroFrase:
-      "Construo interfaces que funcionam antes de impressionar — e que impressionam justamente por isso.",
+      "Construo interfaces que funcionam antes de impressionar, e que impressionam justamente por isso.",
     verProjetos: "Ver projetos",
     pularPara: "Pular para os projetos",
 
@@ -27,7 +27,7 @@ export const T = {
     sobre: {
       titulo: "Aprendi programando o que eu queria existir.",
       paragrafos: [
-        "Comecei mexendo em coisas que já existiam para entender por que funcionavam. Hoje construo do zero — e a curiosidade continua sendo a mesma.",
+        "Comecei mexendo em coisas que já existiam para entender por que funcionavam. Hoje construo do zero, e a curiosidade continua sendo a mesma.",
         "Trabalho principalmente com React e Next.js, mas o que me interessa de verdade é a parte que o usuário sente: o tempo de resposta, o que acontece quando algo dá errado, o detalhe que ninguém nota até faltar.",
       ],
       retrato: "Retrato",
@@ -46,7 +46,7 @@ export const T = {
       itens: {
         radar: {
           resumo:
-            "Funciona como bússola e acompanha a localização em tempo real, mas o que ele faz de diferente é detectar impactos — quedas, pancadas, colisões — pelo acelerômetro do aparelho, registrando cada ocorrência num backend.",
+            "Funciona como bússola e acompanha a localização em tempo real, mas o que ele faz de diferente é detectar impactos (quedas, pancadas, colisões) pelo acelerômetro do aparelho, registrando cada ocorrência num backend.",
           papel: "Mobile e integração",
         },
         cantinho: {
@@ -56,12 +56,12 @@ export const T = {
         },
         estoque: {
           resumo:
-            "Controle de estoque de peças de hardware — placas de vídeo, memórias, componentes. Cadastra, edita e remove itens, com um painel que mostra as métricas do estoque em tempo real.",
+            "Controle de estoque de peças de hardware: placas de vídeo, memórias, componentes. Cadastra, edita e remove itens, com um painel que mostra as métricas do estoque em tempo real.",
           papel: "Projeto em equipe",
         },
         ggames: {
           resumo:
-            "Sistema de mesa para uma locadora de setups gamer. Controla o aluguel dos equipamentos, as devoluções e os upgrades de hardware — começou como um CRUD em memória e virou um programa de verdade.",
+            "Sistema de mesa para uma locadora de setups gamer. Controla o aluguel dos equipamentos, as devoluções e os upgrades de hardware. Começou como um CRUD em memória e virou um programa de verdade.",
           papel: "Desenvolvimento",
         },
         brownies: {
@@ -91,7 +91,7 @@ export const T = {
     local: "Brazil",
     roleParaEntrar: "Scroll to enter",
     heroFrase:
-      "I build interfaces that work before they impress — and that impress precisely because of it.",
+      "I build interfaces that work before they impress, and that impress precisely because of it.",
     verProjetos: "View work",
     pularPara: "Skip to projects",
 
@@ -106,7 +106,7 @@ export const T = {
     sobre: {
       titulo: "I learned to code by building what I wanted to exist.",
       paragrafos: [
-        "I started by taking apart things that already worked, to understand why they did. Now I build from scratch — and the curiosity is still the same.",
+        "I started by taking apart things that already worked, to understand why they did. Now I build from scratch, and the curiosity is still the same.",
         "I work mostly with React and Next.js, but what really interests me is the part the user feels: response time, what happens when something breaks, the detail nobody notices until it is missing.",
       ],
       retrato: "Portrait",
@@ -125,7 +125,7 @@ export const T = {
       itens: {
         radar: {
           resumo:
-            "It works as a compass and tracks location in real time, but what sets it apart is detecting impacts — falls, knocks, collisions — through the device accelerometer, logging every event to a backend.",
+            "It works as a compass and tracks location in real time, but what sets it apart is detecting impacts (falls, knocks, collisions) through the device accelerometer, logging every event to a backend.",
           papel: "Mobile and integration",
         },
         cantinho: {
@@ -135,12 +135,12 @@ export const T = {
         },
         estoque: {
           resumo:
-            "Inventory control for hardware parts — graphics cards, memory, components. Create, edit and remove items, with a panel showing stock metrics in real time.",
+            "Inventory control for hardware parts: graphics cards, memory, components. Create, edit and remove items, with a panel showing stock metrics in real time.",
           papel: "Team project",
         },
         ggames: {
           resumo:
-            "Desktop system for a gaming setup rental shop. It handles equipment rentals, returns and hardware upgrades — it started as an in-memory CRUD and grew into a real program.",
+            "Desktop system for a gaming setup rental shop. It handles equipment rentals, returns and hardware upgrades. It started as an in-memory CRUD and grew into a real program.",
           papel: "Development",
         },
         brownies: {

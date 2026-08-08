@@ -44,7 +44,7 @@ export function ScrollVideo({
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-    // O percurso é dado pela seção inteira, não pelo contêiner do vídeo — este
+    // O percurso é dado pela seção inteira, não pelo contêiner do vídeo, que
     // vive dentro do sticky e por isso mede apenas uma viewport.
     const track = host.closest("section") ?? host;
 
@@ -97,8 +97,8 @@ export function ScrollVideo({
     );
   }
 
-  // Opaca no miolo para preservar o assunto, dissolvendo só nas quinas — é lá
-  // que sobram reflexos de lente do material bruto.
+  // Opaca no miolo para preservar o assunto, dissolvendo só nas quinas, que é
+  // onde sobram reflexos de lente do material bruto.
   const mascara =
     "radial-gradient(ellipse 78% 78% at 50% 50%, #000 52%, transparent 82%)";
 

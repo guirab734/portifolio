@@ -2,7 +2,7 @@
 
 @theme {
   /* Preto com viés violeta, ultravioleta elétrico e um magenta quente.
-     O magenta existe para quebrar a monotonia do roxo — usar com parcimônia. */
+     O magenta existe para quebrar a monotonia do roxo. Usar com parcimônia. */
   --color-void: #09070f;
   --color-surface: #14101f;
   --color-ultraviolet: #7b2bf9;

@@ -25,11 +25,11 @@ const jetbrains = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://guirab.com.br"),
-  title: "Guilherme Rabelo — Desenvolvedor",
+  title: "Guilherme Rabelo · Desenvolvedor",
   description:
     "Interfaces e aplicações web construídas com Next.js, TypeScript e atenção a detalhe.",
   openGraph: {
-    title: "Guilherme Rabelo — Desenvolvedor",
+    title: "Guilherme Rabelo · Desenvolvedor",
     description:
       "Interfaces e aplicações web construídas com Next.js, TypeScript e atenção a detalhe.",
     url: "https://guirab.com.br",

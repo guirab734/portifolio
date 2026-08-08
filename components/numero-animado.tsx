@@ -3,8 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 
 /**
- * Conta de zero até o valor quando o número entra na tela. Dispara uma vez só —
- * repetir a cada passagem viraria distração.
+ * Conta de zero até o valor quando o número entra na tela. Dispara uma vez só,
+ * porque repetir a cada passagem viraria distração.
  */
 export function NumeroAnimado({ valor }: { valor: number }) {
   const ref = useRef<HTMLSpanElement>(null);

@@ -14,11 +14,11 @@ Uma página, cinco seções, navegação lateral fixa com marca de progresso.
 
 | Seção | Vídeo de fundo | Modo |
 |---|---|---|
-| Início | 01 — Hero, 10s | scrub |
-| Sobre | — | — |
-| Projetos | 03 — Ambiente, 12s | loop |
-| Stacks | 04 — Estrutura, 6s | loop |
-| Contato | 05 — Fecho, 8s | scrub |
+| Início | 01 · Hero, 10s | scrub |
+| Sobre | nenhum | nenhum |
+| Projetos | 03 · Ambiente, 12s | loop |
+| Stacks | 04 · Estrutura, 6s | loop |
+| Contato | 05 · Fecho, 8s | scrub |
 
 **scrub** é o scroll controlando o tempo do vídeo quadro a quadro; **loop** é
 reprodução contínua ao fundo.
@@ -26,7 +26,7 @@ reprodução contínua ao fundo.
 A abertura entra pela tela de um monitor: o recorte da tela se expande até virar
 a viewport, sem trocar de elemento. Como `object-cover` corta a foto para
 preencher a tela, os cantos medidos na imagem são convertidos para coordenadas
-da viewport em tempo real — sem isso o vídeo encaixa torto em telas de proporção
+da viewport em tempo real. Sem isso o vídeo encaixa torto em telas de proporção
 diferente.
 
 O clipe 02 não é usado hoje; o arquivo segue em `public/videos` para
@@ -40,8 +40,8 @@ números e contato. Textos nos dois idiomas em [`lib/i18n.ts`](lib/i18n.ts).
 Os prompts dos vídeos estão em [`docs/videos.md`](docs/videos.md), com o
 diagnóstico do que deu errado em cada geração.
 
-Ao trocar imagens, apague `.next/cache/images` — o Next serve a versão anterior
-até o cache expirar.
+Ao trocar imagens, apague `.next/cache/images`, porque o Next serve a versão
+anterior até o cache expirar.
 
 ## Vídeo e scroll
 
@@ -71,7 +71,7 @@ etiquetas.
 
 As entradas por scroll usam `animation-timeline` nativo, sem biblioteca de
 animação. Navegadores sem suporte mostram o conteúdo direto, e
-`prefers-reduced-motion` desliga tudo — inclusive a rolagem interpolada.
+`prefers-reduced-motion` desliga tudo, inclusive a rolagem interpolada.
 
 Clipes com fundo escuro usam `mix-blend-mode: lighten` mais máscara radial para
 se fundirem à página. Isso só funciona com preto absoluto no arquivo: qualquer
@@ -88,7 +88,7 @@ Servidores MCP em [`.mcp.json`](.mcp.json): `shadcn-ui` para componentes e
 `chrome-devtools` para inspeção no navegador. As skills `frontend-design` e
 `web-design-guidelines` ficam em `.claude/skills/`.
 
-A única chave é o `GITHUB_TOKEN`, opcional — evita o limite de 60 requisições
+A única chave é o `GITHUB_TOKEN`, opcional: evita o limite de 60 requisições
 por hora do `shadcn-ui`. Modelo em [`.env.example`](.env.example).
 
 ## Medição
