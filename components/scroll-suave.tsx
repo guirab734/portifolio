@@ -5,7 +5,7 @@ import Lenis from "lenis";
 
 /**
  * Interpola a rolagem para ela chegar com inércia em vez de aos saltos da roda
- * do mouse. Fica fora quando o sistema pede menos movimento — aí a rolagem
+ * do mouse. Fica fora quando o sistema pede menos movimento, e aí a rolagem
  * nativa é a resposta certa.
  */
 export function ScrollSuave() {

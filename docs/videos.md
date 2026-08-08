@@ -2,17 +2,17 @@
 
 Cinco vídeos, um por seção, gerados no Leonardo AI e salvos em `public/videos/`.
 Enquanto o arquivo não existir, o site mostra um placeholder tracejado no lugar
-exato — nada quebra.
+exato, e nada quebra.
 
 ## Status
 
 | # | Seção | Duração | Formato | Situação |
 |---|---|---|---|---|
-| 01 | Hero | 10s | 16:9 | **aprovado** — instalado como `hero.mp4` |
-| 02 | Transição | 5s | 9:16 | **regerar** — claro demais e sem partículas |
-| 03 | Ambiente | 12s | 16:9 | **regerar** — o roxo saiu cinza |
-| 04 | Estrutura | 6s | 1:1 | **aprovado** — instalado como `stack.mp4` |
-| 05 | Fecho | 8s | 16:9 | **regerar** — a tinta saiu vermelha |
+| 01 | Hero | 10s | 16:9 | **aprovado**, instalado como `hero.mp4` |
+| 02 | Transição | 5s | 9:16 | **regerar**, claro demais e sem partículas |
+| 03 | Ambiente | 12s | 16:9 | **regerar**, o roxo saiu cinza |
+| 04 | Estrutura | 6s | 1:1 | **aprovado**, instalado como `stack.mp4` |
+| 05 | Fecho | 8s | 16:9 | **regerar**, a tinta saiu vermelha |
 
 ## O que estes vídeos são e não são
 
@@ -20,8 +20,8 @@ O Leonardo não renderiza os seus projetos reais. Por isso os cinco são
 **atmosfera, não conteúdo**: criam o ambiente, e os projetos entram por cima
 como screenshots na seção Projetos.
 
-Os cinco compartilham a mesma gramática — câmera estática, movimento lento,
-preto absoluto — para o site parecer uma peça só.
+Os cinco compartilham a mesma gramática (câmera estática, movimento lento,
+preto absoluto) para o site parecer uma peça só.
 
 ## Como instalar um vídeo depois de gerar
 
@@ -29,7 +29,7 @@ preto absoluto — para o site parecer uma peça só.
 2. Preencha o campo `arquivo` em `lib/site-data.ts`:
 
 ```ts
-transicao: { arquivo: "/videos/transicao.mp4", slot: "VÍDEO 02 — TRANSIÇÃO", duracao: "5s · scrub" },
+transicao: { arquivo: "/videos/transicao.mp4", slot: "VÍDEO 02 · TRANSIÇÃO", duracao: "5s · scrub" },
 ```
 
 Vale recodificar antes de instalar: 4K num vídeo de fundo é desperdício. O hero
@@ -37,13 +37,13 @@ caiu de 14,5 MB para 1,0 MB em 1080p sem diferença visível.
 
 ---
 
-## VÍDEO 02 — TRANSIÇÃO (regerar)
+## VÍDEO 02 · TRANSIÇÃO (regerar)
 
 **5 segundos · 9:16 vertical · scrub**
 
 O que saiu errado: o feixe ocupou metade do quadro num lilás pastel quase
 branco, as partículas de poeira não apareceram e o clipe ficou praticamente
-estático. O prompt abaixo corrige os três — feixe estreito, quadro muito mais
+estático. O prompt abaixo corrige os três: feixe estreito, quadro muito mais
 escuro e as partículas como assunto principal, não como detalhe.
 
 ```
@@ -54,13 +54,13 @@ Negative: no bright light, no white light, no washed out areas, no pastel colors
 
 ---
 
-## VÍDEO 03 — AMBIENTE (regerar)
+## VÍDEO 03 · AMBIENTE (regerar)
 
 **12 segundos · 16:9 · loop contínuo**
 
 O que saiu errado: a névoa veio completamente dessaturada, cinza prateada, sem
 nenhum roxo. Como este vídeo roda a 18% de opacidade atrás dos projetos, ele
-precisa carregar cor — senão vira uma mancha cinza. O prompt abaixo insiste na
+precisa carregar cor, senão vira uma mancha cinza. O prompt abaixo insiste na
 saturação e troca "fog" por fumaça colorida, que puxa menos para o cinza.
 
 ```
@@ -71,7 +71,7 @@ Negative: no gray, no grey smoke, no white smoke, no silver, no desaturated colo
 
 ---
 
-## VÍDEO 05 — FECHO (regerar)
+## VÍDEO 05 · FECHO (regerar)
 
 **8 segundos · 16:9 · scrub**
 
@@ -94,5 +94,5 @@ Negative: no red, no coral, no crimson, no scarlet, no orange, no warm colors, n
 - **Rápido demais:** acrescente `quarter speed, extreme slow motion`
 - **Cor dessaturada:** use `deeply saturated, vivid, intense color` e proíba `gray, desaturated` no negativo
 - **Aparecendo objetos:** reforce `abstract only, no subject` no negativo
-- **Borda de aquário:** proíba `tank, glass, rim, waterline` — ou corte no ffmpeg depois, como foi feito no hero
+- **Borda de aquário:** proíba `tank, glass, rim, waterline`, ou corte no ffmpeg depois, como foi feito no hero
 - **Loop com corte visível:** peça `seamless loop, first frame identical to last frame`

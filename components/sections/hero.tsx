@@ -44,7 +44,7 @@ export function Hero() {
    * `object-cover` recorta a foto para preencher a viewport, então uma
    * porcentagem medida na imagem não cai no mesmo ponto da tela. Aqui refazemos
    * a conta do cover para converter os cantos da tela em coordenadas da
-   * viewport — sem isso o vídeo encaixa torto em telas de proporção diferente.
+   * viewport. Sem isso o vídeo encaixa torto em telas de proporção diferente.
    */
   const paraViewport = ([x, y]: readonly [number, number]) => {
     if (!vp.w || !vp.h) return [x, y] as const;

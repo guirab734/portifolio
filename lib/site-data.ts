@@ -25,10 +25,10 @@ export const SECTIONS = [
 ] as const;
 
 export const VIDEOS = {
-  hero: { arquivo: "/videos/hero.mp4", slot: "VÍDEO 01 — HERO", duracao: "10s · scrub" },
-  projetos: { arquivo: "/videos/projetos.mp4", slot: "VÍDEO 03 — AMBIENTE", duracao: "12s · loop" },
-  stack: { arquivo: "/videos/stack.mp4", slot: "VÍDEO 04 — ESTRUTURA", duracao: "6s · loop" },
-  fecho: { arquivo: "/videos/fecho.mp4", slot: "VÍDEO 05 — FECHO", duracao: "8s · scrub" },
+  hero: { arquivo: "/videos/hero.mp4", slot: "VÍDEO 01 · HERO", duracao: "10s · scrub" },
+  projetos: { arquivo: "/videos/projetos.mp4", slot: "VÍDEO 03 · AMBIENTE", duracao: "12s · loop" },
+  stack: { arquivo: "/videos/stack.mp4", slot: "VÍDEO 04 · ESTRUTURA", duracao: "6s · loop" },
+  fecho: { arquivo: "/videos/fecho.mp4", slot: "VÍDEO 05 · FECHO", duracao: "8s · scrub" },
 };
 
 export const TIPOS = ["landing", "app", "programa"] as const;
