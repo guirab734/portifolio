@@ -87,6 +87,15 @@ export const PROJETOS: Projeto[] = [
     repo: "https://github.com/guirab734/projeto-c",
   },
   {
+    id: "velora",
+    titulo: "Velora",
+    tipo: "landing",
+    ano: "2026",
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "PWA"],
+    repo: "https://github.com/guirab734/industry",
+    demo: "",
+  },
+  {
     id: "brownies",
     titulo: "Brownies da Soso",
     tipo: "landing",

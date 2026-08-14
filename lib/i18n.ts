@@ -64,6 +64,11 @@ export const T = {
             "Sistema de mesa para uma locadora de setups gamer. Controla o aluguel dos equipamentos, as devoluções e os upgrades de hardware. Começou como um CRUD em memória e virou um programa de verdade.",
           papel: "Desenvolvimento",
         },
+        velora: {
+          resumo:
+            "Site de uma plataforma de recebimento por Pix, escrito para quem não é da área: explica o que um meio de pagamento faz sem jargão e deixa o visitante testar. Ele digita um valor, vê o QR Code nascer e acompanha a confirmação até o comprovante, tudo simulado no próprio navegador. Junto vem o Velora Sandbox, um app que instala pelo navegador, sem loja.",
+          papel: "Front-end e identidade",
+        },
         brownies: {
           resumo:
             "Cardápio digital de uma confeitaria de brownies, feito na base do HTML e CSS. Trabalho de curso, e é justamente por isso que ele mostra o começo do caminho.",
@@ -142,6 +147,11 @@ export const T = {
           resumo:
             "Desktop system for a gaming setup rental shop. It handles equipment rentals, returns and hardware upgrades. It started as an in-memory CRUD and grew into a real program.",
           papel: "Development",
+        },
+        velora: {
+          resumo:
+            "Site for a platform that takes payments over Pix, Brazil's instant payment system, written for people outside the field: it explains what a payment method does without jargon and lets the visitor try it. They type an amount, watch the QR code appear and follow the confirmation through to the receipt, all simulated in the browser. It ships with Velora Sandbox, an app that installs straight from the browser, no app store.",
+          papel: "Front-end and identity",
         },
         brownies: {
           resumo:
