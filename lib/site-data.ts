@@ -95,6 +95,15 @@ export const PROJETOS: Projeto[] = [
     repo: "https://github.com/guirab734/projeto-c",
   },
   {
+    id: "jovemtech",
+    titulo: "Jovem Tech",
+    tipo: "landing",
+    ano: "2026",
+    stack: ["HTML", "CSS", "JavaScript", "GitHub Pages"],
+    repo: "https://github.com/guirab734/JT",
+    demo: "",
+  },
+  {
     id: "velora",
     titulo: "Velora",
     tipo: "landing",

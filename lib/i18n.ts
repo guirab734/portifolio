@@ -69,6 +69,11 @@ export const T = {
             "Sistema de mesa para uma locadora de setups gamer. Controla o aluguel dos equipamentos, as devoluções e os upgrades de hardware. Começou como um CRUD em memória e virou um programa de verdade.",
           papel: "Desenvolvimento",
         },
+        jovemtech: {
+          resumo:
+            "Site da trilha Jovem Tech, com os módulos, os encontros e o material de apoio numa página só. Foi feito para o processo seletivo de instrutor do projeto, e junto dele vão o plano de aula, a apresentação e o Mural de Vagas, o algoritmo que eu demonstrei ao vivo na aula. HTML, CSS e JavaScript direto, sem framework.",
+          papel: "Site e material didático",
+        },
         velora: {
           resumo:
             "Site de uma plataforma de recebimento por Pix, escrito para quem não é da área: explica o que um meio de pagamento faz sem jargão e deixa o visitante testar. Ele digita um valor, vê o QR Code nascer e acompanha a confirmação até o comprovante, tudo simulado no próprio navegador. Junto vem o Velora Sandbox, um app que instala pelo navegador, sem loja.",
@@ -157,6 +162,11 @@ export const T = {
           resumo:
             "Desktop system for a gaming setup rental shop. It handles equipment rentals, returns and hardware upgrades. It started as an in-memory CRUD and grew into a real program.",
           papel: "Development",
+        },
+        jovemtech: {
+          resumo:
+            "Site for the Jovem Tech learning track, holding the modules, the sessions and the supporting material on a single page. It was built for the project's instructor selection process, and it ships with the lesson plan, the slide deck and Mural de Vagas, the algorithm I demonstrated live in class. Plain HTML, CSS and JavaScript, no framework.",
+          papel: "Site and teaching material",
         },
         velora: {
           resumo:
