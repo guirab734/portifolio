@@ -79,6 +79,14 @@ export const PROJETOS: Projeto[] = [
     demo: "",
   },
   {
+    id: "filazero",
+    titulo: "Provisionamento de Unidades",
+    tipo: "programa",
+    ano: "2026",
+    stack: ["Node.js", "JavaScript", "CLI", "ViaCEP", "Testes"],
+    repo: "https://github.com/guirab734/filazero",
+  },
+  {
     id: "ggames",
     titulo: "GGAMES",
     tipo: "programa",
