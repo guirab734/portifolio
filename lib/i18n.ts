@@ -59,6 +59,11 @@ export const T = {
             "Controle de estoque de peças de hardware: placas de vídeo, memórias, componentes. Cadastra, edita e remove itens, com um painel que mostra as métricas do estoque em tempo real.",
           papel: "Projeto em equipe",
         },
+        filazero: {
+          resumo:
+            "Automação que lê uma lista de unidades em CSV, completa cada endereço pela API do ViaCEP e gera o arquivo de provisionamento pronto para o cadastro. Foi escrita para não morrer no meio: CEP inválido falha na hora, instabilidade de rede é retentada, e a unidade que ficou de fora aparece no resumo do fim em vez de entrar pela metade. Node puro, sem nenhuma dependência.",
+          papel: "Back-end e automação",
+        },
         ggames: {
           resumo:
             "Sistema de mesa para uma locadora de setups gamer. Controla o aluguel dos equipamentos, as devoluções e os upgrades de hardware. Começou como um CRUD em memória e virou um programa de verdade.",
@@ -142,6 +147,11 @@ export const T = {
           resumo:
             "Inventory control for hardware parts: graphics cards, memory, components. Create, edit and remove items, with a panel showing stock metrics in real time.",
           papel: "Team project",
+        },
+        filazero: {
+          resumo:
+            "Automation that reads a list of business units from a CSV, fills in each address through the ViaCEP API and writes the provisioning file the registration needs. It was written so it never dies halfway: an invalid postcode fails immediately, network flakiness is retried, and any unit left out shows up in the closing summary instead of landing half filled. Plain Node, with no dependencies at all.",
+          papel: "Back-end and automation",
         },
         ggames: {
           resumo:
