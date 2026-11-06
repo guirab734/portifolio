@@ -31,7 +31,7 @@ export const VIDEOS = {
   fecho: { arquivo: "/videos/fecho.mp4", slot: "VÍDEO 05 · FECHO", duracao: "8s · scrub" },
 };
 
-export const TIPOS = ["landing", "app", "programa"] as const;
+export const TIPOS = ["web", "app", "landing", "programa"] as const;
 export type Tipo = (typeof TIPOS)[number];
 
 export type Projeto = {
@@ -40,9 +40,11 @@ export type Projeto = {
   tipo: Tipo;
   ano: string;
   stack: string[];
-  repo: string;
+  repo?: string;
   /** Site publicado. Aparece como "Ver ao vivo". */
   demo?: string;
+  /** Demonstração isolada, com dados fictícios e somente consulta. */
+  demonstracao?: boolean;
   /** APK ou link da loja. Aparece como "Baixar para Android". */
   android?: string;
   /** Captura em public/projetos. Sem ela o card mostra o espaço reservado. */
@@ -51,6 +53,35 @@ export type Projeto = {
 
 // Texto de resumo e papel vem do dicionário, na mesma ordem desta lista
 export const PROJETOS: Projeto[] = [
+  {
+    id: "placas",
+    titulo: "Guirab Placas",
+    tipo: "web",
+    ano: "2026",
+    stack: ["React", "TypeScript", "QR Code", "NFC"],
+    demo: "/demos/placas/index.html",
+    demonstracao: true,
+    imagem: "/projetos/placas.webp",
+  },
+  {
+    id: "tiacris",
+    titulo: "Recursos da Tia Cris",
+    tipo: "web",
+    ano: "2026",
+    stack: ["Next.js", "TypeScript", "Supabase", "E-commerce"],
+    demo: "https://www.recursosdatiacris.com.br",
+    imagem: "/projetos/tiacris.webp",
+  },
+  {
+    id: "ritmo",
+    titulo: "Ritmo",
+    tipo: "web",
+    ano: "2026",
+    stack: ["JavaScript", "CSS", "ES Modules"],
+    demo: "/demos/ritmo/index.html",
+    demonstracao: true,
+    imagem: "/projetos/ritmo.webp",
+  },
   {
     id: "radar",
     titulo: "Radar de Impacto",

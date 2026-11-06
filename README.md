@@ -37,6 +37,11 @@ reaproveitamento.
 Conteúdo e dados em [`lib/site-data.ts`](lib/site-data.ts): projetos, stack,
 números e contato. Textos nos dois idiomas em [`lib/i18n.ts`](lib/i18n.ts).
 
+As versões de portfólio de Guirab Placas e Ritmo ficam em `public/demos/`, com
+dados fictícios e somente consulta. A loja da Tia Cris abre no site público.
+Detalhes e instruções de atualização em [`docs/demonstracoes.md`](docs/demonstracoes.md).
+Validação de isolamento: `node --test scripts/demo-privacy.test.mjs`.
+
 Os prompts dos vídeos estão em [`docs/videos.md`](docs/videos.md), com o
 diagnóstico do que deu errado em cada geração.
 

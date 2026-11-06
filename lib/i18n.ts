@@ -37,13 +37,29 @@ export const T = {
     projetos: {
       selecionados: (n: number) => `${n} selecionados`,
       verMais: "Ver mais",
+      verMenos: "Ver menos",
       verAoVivo: "Ver ao vivo",
+      verDemonstracao: "Explorar demonstração",
+      somenteLeitura: "Demo · somente consulta",
+      demonstracaoNota: "Explore as telas com dados fictícios. As demonstrações são somente consulta; a loja da Tia Cris abre no site público.",
       baixarAndroid: "Baixar para Android",
       codigo: "Código",
       emBreve: "Publicação em breve",
-      tipos: { landing: "Landing Pages", app: "Apps", programa: "Programas" },
+      tipos: { web: "Sites", landing: "Landing Pages", app: "Apps", programa: "Programas" },
       vazio: "Ainda não tem projeto nesta categoria.",
       itens: {
+        placas: {
+          resumo: "Gestão de placas NFC e QR Code para avaliações: estoque, fichas de estabelecimentos, acompanhamento, impressão e território de visitas. A demonstração usa lojas e métricas fictícias, com prévias fixas e sem edição, geração de placas ou destinos reais.",
+          papel: "Desenvolvimento completo",
+        },
+        tiacris: {
+          resumo: "Loja de recursos pedagógicos com catálogo por categorias, busca, páginas de produtos, carrinho e acompanhamento de pedidos. Uma experiência feita para facilitar a descoberta dos materiais da Tia Cris.",
+          papel: "Desenvolvimento completo",
+        },
+        ritmo: {
+          resumo: "Aplicação de treino com ficha semanal, ilustrações dos movimentos, telas de execução, descanso e histórico. A versão de portfólio preserva a interface original com uma ficha fictícia fixa e registros de exemplo, sem edição ou gravação de dados.",
+          papel: "Desenvolvimento completo",
+        },
         radar: {
           resumo:
             "Funciona como bússola e acompanha a localização em tempo real, mas o que ele faz de diferente é detectar impactos (quedas, pancadas, colisões) pelo acelerômetro do aparelho, registrando cada ocorrência num backend.",
@@ -131,13 +147,29 @@ export const T = {
     projetos: {
       selecionados: (n: number) => `${n} selected`,
       verMais: "See more",
+      verMenos: "See less",
       verAoVivo: "Live site",
+      verDemonstracao: "Explore demo",
+      somenteLeitura: "Demo · read only",
+      demonstracaoNota: "Explore the screens with fictional data. Demos are read only; Tia Cris opens the public store.",
       baixarAndroid: "Download for Android",
       codigo: "Source",
       emBreve: "Publishing soon",
-      tipos: { landing: "Landing Pages", app: "Apps", programa: "Software" },
+      tipos: { web: "Websites", landing: "Landing Pages", app: "Apps", programa: "Software" },
       vazio: "No project in this category yet.",
       itens: {
+        placas: {
+          resumo: "NFC and QR review sign management: inventory, business records, review tracking, printing and visit territories. The demo uses fictional businesses and metrics, with fixed previews and no editing, sign generation or real destinations.",
+          papel: "Full development",
+        },
+        tiacris: {
+          resumo: "An educational resource store with category browsing, search, product pages, a shopping cart and order tracking. Built to help families and educators discover Tia Cris’s materials.",
+          papel: "Full development",
+        },
+        ritmo: {
+          resumo: "A workout application with a weekly plan, exercise illustrations, workout screens, rest periods and history. The portfolio version preserves the original interface with a fixed fictional plan and sample records, with no editing or data recording.",
+          papel: "Full development",
+        },
         radar: {
           resumo:
             "It works as a compass and tracks location in real time, but what sets it apart is detecting impacts (falls, knocks, collisions) through the device accelerometer, logging every event to a backend.",

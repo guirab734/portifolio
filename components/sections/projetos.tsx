@@ -8,7 +8,7 @@ import { PROJETOS, TIPOS, VIDEOS, type Projeto, type Tipo } from "@/lib/site-dat
 
 export function Projetos() {
   const { t } = useIdioma();
-  const [tipo, setTipo] = useState<Tipo>("app");
+  const [tipo, setTipo] = useState<Tipo>("web");
 
   const lista = PROJETOS.filter((p) => p.tipo === tipo);
 
@@ -62,6 +62,12 @@ export function Projetos() {
           })}
         </div>
 
+        {tipo === "web" && (
+          <p className="mt-6 max-w-2xl text-sm leading-relaxed text-lilac/75">
+            {t.projetos.demonstracaoNota}
+          </p>
+        )}
+
         {lista.length === 0 ? (
           <p className="py-20 text-lede text-lilac/60">{t.projetos.vazio}</p>
         ) : (
@@ -85,7 +91,7 @@ function Card({ projeto }: { projeto: Projeto }) {
   const principal = projeto.android
     ? { href: projeto.android, rotulo: t.projetos.baixarAndroid }
     : projeto.demo
-      ? { href: projeto.demo, rotulo: t.projetos.verAoVivo }
+      ? { href: projeto.demo, rotulo: projeto.demonstracao ? t.projetos.verDemonstracao : t.projetos.verAoVivo }
       : null;
 
   return (
@@ -108,6 +114,11 @@ function Card({ projeto }: { projeto: Projeto }) {
           </div>
         )}
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent" />
+        {projeto.demonstracao && (
+          <span className="absolute top-4 left-4 border border-lilac/25 bg-void/90 px-3 py-2 font-mono text-[0.6rem] tracking-wider text-paper uppercase">
+            {t.projetos.somenteLeitura}
+          </span>
+        )}
       </div>
 
       <div className="p-6">
@@ -129,20 +140,19 @@ function Card({ projeto }: { projeto: Projeto }) {
           ))}
         </div>
 
-        {aberto && (
-          <p className="mt-5 text-[0.95rem] leading-relaxed text-lilac">
-            {texto?.resumo}
-          </p>
-        )}
+        <p id={`resumo-${projeto.id}`} hidden={!aberto} className="mt-5 text-[0.95rem] leading-relaxed text-lilac">
+          {texto?.resumo}
+        </p>
 
         <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
           <button
             type="button"
             onClick={() => setAberto((v) => !v)}
             aria-expanded={aberto}
+            aria-controls={`resumo-${projeto.id}`}
             className="border border-ultraviolet/60 px-4 py-2 font-mono text-[0.65rem] tracking-[0.18em] text-paper uppercase transition-colors hover:bg-ultraviolet"
           >
-            {t.projetos.verMais}
+            {aberto ? t.projetos.verMenos : t.projetos.verMais}
           </button>
 
           {principal ? (
@@ -155,19 +165,21 @@ function Card({ projeto }: { projeto: Projeto }) {
               {principal.rotulo}
             </a>
           ) : (
-            <span className="font-mono text-[0.65rem] tracking-[0.18em] text-lilac/40 uppercase">
+            <span className="font-mono text-[0.65rem] tracking-[0.18em] text-lilac/60 uppercase">
               {t.projetos.emBreve}
             </span>
           )}
 
-          <a
-            href={projeto.repo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="ml-auto font-mono text-[0.65rem] tracking-[0.18em] text-lilac uppercase transition-colors hover:text-paper"
-          >
-            {t.projetos.codigo}
-          </a>
+          {projeto.repo && (
+            <a
+              href={projeto.repo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ml-auto font-mono text-[0.65rem] tracking-[0.18em] text-lilac uppercase transition-colors hover:text-paper"
+            >
+              {t.projetos.codigo}
+            </a>
+          )}
         </div>
       </div>
     </li>
