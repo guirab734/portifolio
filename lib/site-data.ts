@@ -162,10 +162,11 @@ export const PROJETOS: Projeto[] = [
     titulo: "Brownies da Soso",
     tipo: "landing",
     ano: "2026",
-    stack: ["HTML", "CSS"],
+    stack: ["HTML", "CSS", "JavaScript"],
     codigoPrivado: true,
     imagem: "/projetos/brownies.webp",
-    demo: "",
+    demo: "/demos/brownies/index.html",
+    demonstracao: true,
   },
 ];
 

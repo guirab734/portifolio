@@ -99,7 +99,7 @@ export const T = {
         },
         brownies: {
           resumo:
-            "Cardápio digital de uma confeitaria de brownies, feito na base do HTML e CSS. Trabalho de curso, e é justamente por isso que ele mostra o começo do caminho.",
+            "Cardápio digital de uma confeitaria de brownies, com filtros, animações e uma apresentação de encomendas. A demonstração permite conhecer o site com um pedido ilustrativo fixo, sem coletar dados ou enviar encomendas.",
           papel: "Front-end",
         },
       },
@@ -211,7 +211,7 @@ export const T = {
         },
         brownies: {
           resumo:
-            "Digital menu for a brownie shop, built on plain HTML and CSS. Coursework, and that is exactly why it shows where the path started.",
+            "A brownie shop menu with filters, animations and an order presentation. The demo lets visitors explore the site with a fixed sample order, without collecting data or submitting orders.",
           papel: "Front-end",
         },
       },
