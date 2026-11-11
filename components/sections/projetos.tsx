@@ -32,7 +32,7 @@ export function Projetos() {
           <h2 className="font-display text-giga font-bold text-paper">
             {t.secoes.projetos}
           </h2>
-          <span className="font-mono text-[0.7rem] tracking-[0.22em] text-lilac/60 uppercase">
+          <span className="font-mono text-[0.7rem] tracking-[0.22em] text-lilac/75 uppercase">
             {t.projetos.selecionados(lista.length)}
           </span>
         </header>
@@ -53,7 +53,7 @@ export function Projetos() {
                 className={`-mb-px border-b-2 px-5 py-3 font-mono text-[0.7rem] tracking-[0.2em] uppercase transition-colors ${
                   ativo
                     ? "border-magenta text-paper"
-                    : "border-transparent text-lilac/50 hover:text-lilac"
+                    : "border-transparent text-lilac/75 hover:text-lilac"
                 }`}
               >
                 {t.projetos.tipos[valor]}
@@ -130,7 +130,7 @@ function Card({ projeto }: { projeto: Projeto }) {
         <h3 className="font-display text-2xl font-bold text-paper">
           {projeto.titulo}
         </h3>
-        <p className="mt-1 font-mono text-[0.65rem] tracking-[0.2em] text-magenta uppercase">
+        <p className="mt-1 font-mono text-[0.65rem] tracking-[0.2em] text-lilac uppercase">
           {texto?.papel} · {projeto.ano}
         </p>
 
