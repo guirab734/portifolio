@@ -13,8 +13,7 @@ export const DAYS = [
         "secondary": "Bíceps, braquial e braquiorradial",
         "cue": "Puxe à frente até o alto do peito, sem jogar o tronco.",
         "art": {
-          "sheet": 0,
-          "row": 0
+          "src": "./assets/puxada-frontal-v2.webp"
         },
         "sets": 2,
         "reps": "10–12",

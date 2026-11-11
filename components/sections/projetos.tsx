@@ -100,7 +100,7 @@ function Card({ projeto }: { projeto: Projeto }) {
         {projeto.imagem ? (
           <Image
             src={projeto.imagem}
-            alt={projeto.titulo}
+            alt={`${projeto.imagemIlustrativa ? t.projetos.imagemIlustrativa : projeto.titulo}${projeto.imagemIlustrativa ? `: ${projeto.titulo}` : ""}`}
             fill
             sizes="(max-width: 768px) 100vw, 45vw"
             className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
@@ -117,6 +117,11 @@ function Card({ projeto }: { projeto: Projeto }) {
         {projeto.demonstracao && (
           <span className="absolute top-4 left-4 border border-lilac/25 bg-void/90 px-3 py-2 font-mono text-[0.6rem] tracking-wider text-paper uppercase">
             {t.projetos.somenteLeitura}
+          </span>
+        )}
+        {projeto.imagemIlustrativa && (
+          <span className="absolute top-4 left-4 border border-lilac/25 bg-void/90 px-3 py-2 font-mono text-[0.6rem] tracking-wider text-paper uppercase">
+            {t.projetos.imagemIlustrativa}
           </span>
         )}
       </div>
@@ -179,6 +184,11 @@ function Card({ projeto }: { projeto: Projeto }) {
             >
               {t.projetos.codigo}
             </a>
+          )}
+          {projeto.codigoPrivado && (
+            <span className="ml-auto font-mono text-[0.6rem] tracking-[0.12em] text-lilac/70 uppercase">
+              {t.projetos.codigoPrivado}
+            </span>
           )}
         </div>
       </div>

@@ -49,9 +49,14 @@ const days = examples.map(([id, label, short, title, ids]) => ({
     const item = catalog[exerciseId];
     if (!item) throw new Error(`Exercício não encontrado: ${exerciseId}`);
     const { id, name, muscle, secondary, cue, art } = item;
-    if (art?.sheet !== undefined) usedSheets.add(art.sheet);
-    if (art?.src) usedFiles.add(path.basename(art.src));
-    return { id, name, muscle, secondary, cue, art: art?.src ? { src: `./assets/${path.basename(art.src)}` } : art, sets: 2, reps: "10–12", restSec: 60 };
+    const demoArt = id === "puxada-frontal-pronada"
+      ? { src: "./assets/puxada-frontal-v2.webp" }
+      : art?.src ? { src: `./assets/${path.basename(art.src)}` } : art;
+    if (id !== "puxada-frontal-pronada") {
+      if (art?.sheet !== undefined) usedSheets.add(art.sheet);
+      if (art?.src) usedFiles.add(path.basename(art.src));
+    }
+    return { id, name, muscle, secondary, cue, art: demoArt, sets: 2, reps: "10–12", restSec: 60 };
   }),
 }));
 await writeFile(path.join(target, "data.js"), `// Invented fixtures for visual review; not the author's workout.\nexport const DAYS = ${JSON.stringify(days, null, 2)};\n`);

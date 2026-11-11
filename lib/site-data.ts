@@ -49,6 +49,9 @@ export type Projeto = {
   android?: string;
   /** Captura em public/projetos. Sem ela o card mostra o espaço reservado. */
   imagem?: string;
+  /** Ilustração conceitual, em vez de captura da interface. */
+  imagemIlustrativa?: boolean;
+  codigoPrivado?: boolean;
 };
 
 // Texto de resumo e papel vem do dicionário, na mesma ordem desta lista
@@ -80,7 +83,7 @@ export const PROJETOS: Projeto[] = [
     stack: ["JavaScript", "CSS", "ES Modules"],
     demo: "/demos/ritmo/index.html",
     demonstracao: true,
-    imagem: "/projetos/ritmo.webp",
+    imagem: "/projetos/ritmo-v2.webp",
   },
   {
     id: "radar",
@@ -88,7 +91,9 @@ export const PROJETOS: Projeto[] = [
     tipo: "app",
     ano: "2026",
     stack: ["React Native", "Expo", "Acelerômetro", "GPS", "Node.js"],
-    repo: "https://github.com/guirab734/react-nation-bussola",
+    codigoPrivado: true,
+    imagem: "/projetos/radar.webp",
+    imagemIlustrativa: true,
     android: "",
   },
   {
@@ -98,6 +103,8 @@ export const PROJETOS: Projeto[] = [
     ano: "2026",
     stack: ["React Native", "Expo", "Node.js", "Express", "PostgreSQL", "JWT"],
     repo: "https://github.com/BrendoBarbosa25/Cantinho-Pedidos",
+    imagem: "/projetos/cantinho.webp",
+    imagemIlustrativa: true,
     android: "",
   },
   {
@@ -107,6 +114,7 @@ export const PROJETOS: Projeto[] = [
     ano: "2026",
     stack: ["JavaScript", "Full-stack", "CRUD", "Dashboard"],
     repo: "https://github.com/bellatrixishere/Projeto-Final",
+    imagem: "/projetos/estoque.webp",
     demo: "",
   },
   {
@@ -115,7 +123,9 @@ export const PROJETOS: Projeto[] = [
     tipo: "programa",
     ano: "2026",
     stack: ["Node.js", "JavaScript", "CLI", "ViaCEP", "Testes"],
-    repo: "https://github.com/guirab734/filazero",
+    codigoPrivado: true,
+    imagem: "/projetos/filazero.webp",
+    imagemIlustrativa: true,
   },
   {
     id: "ggames",
@@ -123,16 +133,19 @@ export const PROJETOS: Projeto[] = [
     tipo: "programa",
     ano: "2026",
     stack: ["C#", ".NET", "Desktop", "POO"],
-    repo: "https://github.com/guirab734/projeto-c",
+    codigoPrivado: true,
+    imagem: "/projetos/ggames.webp",
+    imagemIlustrativa: true,
   },
   {
     id: "jovemtech",
     titulo: "Jovem Tech",
     tipo: "landing",
     ano: "2026",
-    stack: ["HTML", "CSS", "JavaScript", "GitHub Pages"],
-    repo: "https://github.com/guirab734/JT",
-    demo: "",
+    stack: ["HTML", "CSS", "JavaScript"],
+    codigoPrivado: true,
+    imagem: "/projetos/jovemtech.webp",
+    demo: "https://jovemtech.guirab.com.br",
   },
   {
     id: "velora",
@@ -140,8 +153,9 @@ export const PROJETOS: Projeto[] = [
     tipo: "landing",
     ano: "2026",
     stack: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "PWA"],
-    repo: "https://github.com/guirab734/industry",
-    demo: "",
+    codigoPrivado: true,
+    imagem: "/projetos/velora.webp",
+    demo: "https://industry-ten-psi.vercel.app",
   },
   {
     id: "brownies",
@@ -149,7 +163,8 @@ export const PROJETOS: Projeto[] = [
     tipo: "landing",
     ano: "2026",
     stack: ["HTML", "CSS"],
-    repo: "https://github.com/guirab734/Brownies-da-soso-card-pio",
+    codigoPrivado: true,
+    imagem: "/projetos/brownies.webp",
     demo: "",
   },
 ];
