@@ -178,17 +178,13 @@ function Card({ projeto }: { projeto: Projeto }) {
           {projeto.repo && (
             <a
               href={projeto.repo}
+              aria-label={`${t.projetos.codigo}: ${projeto.titulo}`}
               target="_blank"
               rel="noopener noreferrer"
               className="ml-auto font-mono text-[0.65rem] tracking-[0.18em] text-lilac uppercase transition-colors hover:text-paper"
             >
               {t.projetos.codigo}
             </a>
-          )}
-          {projeto.codigoPrivado && (
-            <span className="ml-auto font-mono text-[0.6rem] tracking-[0.12em] text-lilac/70 uppercase">
-              {t.projetos.codigoPrivado}
-            </span>
           )}
         </div>
       </div>

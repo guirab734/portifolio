@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useReducedMotion } from "@/lib/use-reduced-motion";
 
 /**
  * Conta de zero até o valor quando o número entra na tela. Dispara uma vez só,
@@ -9,15 +10,11 @@ import { useEffect, useRef, useState } from "react";
 export function NumeroAnimado({ valor }: { valor: number }) {
   const ref = useRef<HTMLSpanElement>(null);
   const [atual, setAtual] = useState(0);
+  const reducedMotion = useReducedMotion();
 
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
-
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setAtual(valor);
-      return;
-    }
+    if (!el || reducedMotion) return;
 
     let frame = 0;
 
@@ -47,11 +44,11 @@ export function NumeroAnimado({ valor }: { valor: number }) {
       observer.disconnect();
       if (frame) cancelAnimationFrame(frame);
     };
-  }, [valor]);
+  }, [valor, reducedMotion]);
 
   return (
     <span ref={ref} className="tabular-nums">
-      {atual}
+      {reducedMotion ? valor : atual}
     </span>
   );
 }

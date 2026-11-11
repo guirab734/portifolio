@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useReducedMotion } from "@/lib/use-reduced-motion";
 
 type Mode = "scrub" | "ambient";
 
@@ -36,13 +37,21 @@ export function ScrollVideo({
   const videoRef = useRef<HTMLVideoElement>(null);
   const hostRef = useRef<HTMLDivElement>(null);
   const [ready, setReady] = useState(false);
+  const reducedMotion = useReducedMotion();
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || mode !== "ambient") return;
+    if (reducedMotion) video.pause();
+    else video.play().catch(() => {});
+  }, [mode, ready, reducedMotion]);
 
   useEffect(() => {
     const video = videoRef.current;
     const host = hostRef.current;
     if (!video || !host || !src || mode !== "scrub") return;
 
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (reducedMotion) return;
 
     // O percurso é dado pela seção inteira, não pelo contêiner do vídeo, que
     // vive dentro do sticky e por isso mede apenas uma viewport.
@@ -80,7 +89,7 @@ export function ScrollVideo({
       window.removeEventListener("resize", onScroll);
       if (frame) cancelAnimationFrame(frame);
     };
-  }, [mode, ready, src]);
+  }, [mode, ready, src, reducedMotion]);
 
   if (!src) {
     return (
@@ -111,7 +120,8 @@ export function ScrollVideo({
         playsInline
         preload={prioridade ? "auto" : "metadata"}
         loop={mode === "ambient"}
-        autoPlay={mode === "ambient"}
+        autoPlay={mode === "ambient" && !reducedMotion}
+        aria-hidden="true"
         onLoadedMetadata={() => setReady(true)}
         className="h-full w-full object-cover"
         style={

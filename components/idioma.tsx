@@ -5,7 +5,7 @@ import {
   useCallback,
   useContext,
   useEffect,
-  useState,
+  useSyncExternalStore,
   type ReactNode,
 } from "react";
 import { IDIOMAS, T, type Dicionario, type Idioma } from "@/lib/i18n";
@@ -14,28 +14,32 @@ type Contexto = { idioma: Idioma; t: Dicionario; trocar: (i: Idioma) => void };
 
 const IdiomaContext = createContext<Contexto | null>(null);
 const CHAVE = "guirab:idioma";
+let escolhaLocal: Idioma | null = null;
+
+function lerIdioma(): Idioma {
+  let salvo: string | null = escolhaLocal;
+  try { salvo = localStorage.getItem(CHAVE) ?? escolhaLocal; } catch {}
+  if (salvo === "pt" || salvo === "en") return salvo;
+  return navigator.language.toLowerCase().startsWith("pt") ? "pt" : "en";
+}
+
+function acompanharIdioma(onChange: () => void) {
+  const eventos = ["storage", "languagechange", CHAVE];
+  eventos.forEach((evento) => window.addEventListener(evento, onChange));
+  return () => eventos.forEach((evento) => window.removeEventListener(evento, onChange));
+}
 
 export function IdiomaProvider({ children }: { children: ReactNode }) {
-  const [idioma, setIdioma] = useState<Idioma>("pt");
-
-  // A escolha só é lida depois da hidratação: no servidor não existe
-  // localStorage, e divergir do HTML servido quebraria a árvore.
-  useEffect(() => {
-    const salvo = localStorage.getItem(CHAVE);
-    if (salvo === "pt" || salvo === "en") {
-      setIdioma(salvo);
-      return;
-    }
-    if (!navigator.language.toLowerCase().startsWith("pt")) setIdioma("en");
-  }, []);
+  const idioma = useSyncExternalStore(acompanharIdioma, lerIdioma, () => "pt" as Idioma);
 
   useEffect(() => {
     document.documentElement.lang = T[idioma].htmlLang;
   }, [idioma]);
 
   const trocar = useCallback((i: Idioma) => {
-    setIdioma(i);
-    localStorage.setItem(CHAVE, i);
+    escolhaLocal = i;
+    try { localStorage.setItem(CHAVE, i); } catch {}
+    window.dispatchEvent(new Event(CHAVE));
   }, []);
 
   return (

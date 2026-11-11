@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useReducedMotion } from "@/lib/use-reduced-motion";
 
 /**
  * Progresso de 0 a 1 do quanto uma seção já passou pela viewport. 0 quando o
@@ -12,15 +13,11 @@ import { useEffect, useRef, useState } from "react";
 export function useScrollProgress<T extends HTMLElement>() {
   const ref = useRef<T>(null);
   const [progress, setProgress] = useState(0);
+  const reducedMotion = useReducedMotion();
 
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
-
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setProgress(1);
-      return;
-    }
+    if (!el || reducedMotion) return;
 
     let frame = 0;
 
@@ -39,16 +36,16 @@ export function useScrollProgress<T extends HTMLElement>() {
 
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll, { passive: true });
-    update();
+    frame = requestAnimationFrame(update);
 
     return () => {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
       if (frame) cancelAnimationFrame(frame);
     };
-  }, []);
+  }, [reducedMotion]);
 
-  return { ref, progress };
+  return { ref, progress: reducedMotion ? 1 : progress };
 }
 
 /** Reescala um trecho de `progress` para 0..1, para encadear etapas. */

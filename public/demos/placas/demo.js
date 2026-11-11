@@ -23,8 +23,6 @@ const icon = (name, size = 18) => `<svg width="${size}" height="${size}" viewBox
 const esc = (value) => String(value).replace(/[&<>"']/g, (c) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[c]);
 const label = (status) => ({active:"Ativa",paused:"Pausada",available:"Disponível"})[status];
 const badge = (plate) => `<span class="status-badge ${plate.status}"><i></i>${label(plate.status)}</span>`;
-const available = PLACAS.filter((p) => p.status === "available").length;
-const linked = PLACAS.length - available;
 
 function inventoryView() {
   const visible = PLACAS.filter((plate) => ui.filter === "all" || (ui.filter === "linked" ? plate.status !== "available" : plate.status === ui.filter));
